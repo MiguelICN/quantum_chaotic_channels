@@ -83,7 +83,7 @@ u=U[t];uDagger=ConjugateTranspose[u];
 h=Total[
 ParallelTable[
 (* Compute partial trace *)
-A=#[[1;;halfDimH,1;;halfDimH]]+#[[halfDimHPlusOne;;dimH,halfDimHPlusOne;;dimH]]&[u . pauliStrings[[i]] . uDagger,L];
+A=#[[1;;halfDimH,1;;halfDimH]]+#[[halfDimHPlusOne;;dimH,halfDimHPlusOne;;dimH]]&[u . pauliStrings[[i]] . uDagger];
 (* Purity *)
 Chop[constants[[i]]*Tr[A . A]]
 ,{i,4^(L-1)}
@@ -115,3 +115,15 @@ AppendTo[times,time];
 Print[DateString[], ". ",ToString[hzAndJ], "/", lenhzAndJvalues,": ", ToString[NumberForm[time,{Infinity,0}]], " s. Terminar\[AAcute]: ", DateString[DatePlus[Now,Quantity[remainingIterations*Mean[times]/3600,"Hours"]]]];
 
 ,{hzAndJ,lenhzAndJvalues}]; 
+
+
+ParallelMap[
+  Function[i,
+    ps = Parallel`DistributedContexts`Private`getShared[pauliStrings, i];
+    A = #[[1 ;; halfDimH, 1 ;; halfDimH]] + #[[halfDimHPlusOne ;; dimH, halfDimHPlusOne ;; dimH]] &[
+      u . ps . uDagger
+    ];
+    Chop[constants[[i]] * Tr[A . A]]
+  ],
+  Range[4^(L - 1)]
+]

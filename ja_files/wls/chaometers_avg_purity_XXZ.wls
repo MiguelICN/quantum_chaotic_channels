@@ -39,7 +39,7 @@ Close[dataFile];
 Do[
 startTime = AbsoluteTime[];
 
-(* hz y J *)
+(* \[Epsilon]d y Jxy *)
 {\[Epsilon]d, Jxy} = points[[i]];
 
 (* Hamiltoniano *)
@@ -72,7 +72,7 @@ Mean[
 
 (* Agregar {\[Epsilon], Jxy, meanPurity} al archivo CSV *)
 dataFile = OpenAppend[dataFilename];
-WriteString[dataFile, StringJoin[Riffle[ToString/@{hz, J, meanPurity}, ","]]<>"\n"];
+WriteString[dataFile, StringJoin[Riffle[ToString/@{\[Epsilon]d, Jxy, meanPurity}, ","]]<>"\n"];
 Close[dataFile];
 
 endTime = AbsoluteTime[];
