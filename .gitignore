@@ -1,3 +1,4 @@
+*.pid
 ja_files/data
 
 ## Core latex/pdflatex auxiliary files:
