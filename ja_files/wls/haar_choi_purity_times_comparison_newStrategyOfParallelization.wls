@@ -2,6 +2,14 @@
 (* ::Package:: *)
 
 (* ::Section:: *)
+(*Anotaciones*)
+
+
+(* ::Text:: *)
+(*En jungkook puse este c\[OAcute]digo a correr con los puntos revertidos. Para que calcule cosas diferentes que robot.*)
+
+
+(* ::Section:: *)
 (*Definiciones para este script*)
 
 
@@ -35,7 +43,7 @@ n = 10;(* n\[UAcute]mero de puntos en el mapa *)
 (*Numero de kernels a utilizar en la paralelizacion*)
 
 
-kernels= 16;
+kernels= 42;
 
 
 (* ::Section:: *)
@@ -48,8 +56,8 @@ kernels= 16;
 
 SetDirectory["/home/jadeleon/Documents/chaos_meets_channels/ja_files"];
 Get["../Mathematica_packages/QMB.wl"];
-(*LaunchKernels[kernels];*)
-LaunchKernels[{"ssh://nodo1/?18","ssh://nodo2/?33","ssh://nodo3/?30","ssh://nodo4/?14"}](*para usar todos los nodos de robot*)
+LaunchKernels[kernels];
+(*LaunchKernels[{"ssh://nodo1/?18","ssh://nodo2/?33","ssh://nodo3/?30","ssh://nodo4/?14"}]*)(*para usar todos los nodos de robot*)
 Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]]];
 
 
@@ -59,7 +67,7 @@ Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]]];
 
 tiempos = LogSpace[t0, tf, tn];
 
-points = Tuples[{#,#}]&[Subdivide[hz0, hzf, n - 1]];
+points = Reverse[Tuples[{#,#}]&[Subdivide[hz0, hzf, n - 1]]];
 lenpoints = Length[points];
 
 (* Pauli strings *)
