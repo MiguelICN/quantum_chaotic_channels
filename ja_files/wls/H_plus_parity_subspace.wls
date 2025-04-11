@@ -52,7 +52,7 @@ points = Tuples[Join[Flatten[Table[Subdivide[#[[i]],#[[i+1]],3][[1;;3]],{i,9}]],
 
 time1=AbsoluteTime[];
 
-LaunchKernels[56];
+LaunchKernels[35];
 Print["Launched kernels : ", Length[ParallelKernels[]]];
 eigenvalues = 
 	ParallelTable[
