@@ -1,65 +1,111 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
+Import["../Mathematica_packages/QMB.wl"]
+
+
 PositiveParitySubspaceBasis[L_]:=DeleteDuplicatesBy[Tuples[{0,1},L],First[Sort[{#,Reverse[#]}]]&]
 
 
 time1=AbsoluteTime[];
 
 
-L=17;
-base=PositiveParitySubspaceBasis[L];
+L = 3;
+
+base = PositiveParitySubspaceBasis[L];
+tagsbase = Tag /@ base;
 
 (*Esto seguro se puede optimizar, pero queda para despu\[EAcute]s*)
-Hx=Module[{m,dimSubspace=Length[base],q,l},
-m=SparseArray[Prepend[
-Table[
-tmp1=Select[Join[ConstantArray[j,L]-IdentityMatrix[L],If[PalindromeQ[j],{},ConstantArray[Reverse[j],L]-IdentityMatrix[L]]],And@@NonNegative[#]&];
-q=ReplaceAll[PalindromeQ[j],{True->0,False->1}];
-Total[
-Table[
-l=ReplaceAll[PalindromeQ[k],{True->0,False->1}];
-SparseArray[Flatten[Position[base,If[MemberQ[base,k],k,Reverse[k]]]]->2^(-(q+l)/2),dimSubspace]
-,{k,tmp1}]
-]
-,{j,base[[2;;]]}]
-,SparseArray[{},dimSubspace]
-]];
-ConjugateTranspose[m]+m
+Hx = Module[{m ,dimSubspace = Length[tagsbase], q, l, tmp1},
+m = SparseArray[Prepend[
+	Table[
+		(* Encontrar estados \sum_j \dyad{0}{1}_j \ket{k} *)
+		tmp1 = Select[Join[ConstantArray[j,L]-IdentityMatrix[L],If[PalindromeQ[j],{},ConstantArray[Reverse[j],L]-IdentityMatrix[L]]], And@@NonNegative[#]&];
+		q = ReplaceAll[PalindromeQ[j],{True->0,False->1}];
+		(* Encontrar la posici\[OAcute]n en la base y asignar un valor *)
+		Total[
+			Table[
+				l=ReplaceAll[PalindromeQ[k], {True->0, False->1}];
+				SparseArray[Flatten[Position[tagsbase, If[MemberQ[tagsbase, Tag[k]], Tag[k], Tag[Reverse[k]]]]]-> 2.^(-(q+l)/2), dimSubspace]
+		, {k, tmp1}]
+		]
+	,{j,base[[2;;]]}]
+	,SparseArray[{},dimSubspace]
+	]
+	];
+Transpose[m]+m
 ];
 
 
 time2=AbsoluteTime[];
 
 
-Print["Construcci\[OAcute]n de Hx tom\[OAcute] ", NumberForm[time2-time1,{Infinity,2}], " s"];
+Print["Construcci\[OAcute]n de Hx tom\[OAcute] "<>ToString[NumberForm[time2-time1,{Infinity,2}]]<>" s"];
 
 
-Hz=DiagonalMatrix[Total[(-1)^#]&/@base,TargetStructure->"Sparse"];
-
-
-JJ=DiagonalMatrix[Total[(-1)^Differences[#]]&/@base,TargetStructure->"Sparse"];
-
-
+Hz=DiagonalMatrix[Total[(-1)^#]&/@base, TargetStructure->"Sparse"];
+JJ=DiagonalMatrix[Total[(-1)^Differences[#]]&/@base, TargetStructure->"Sparse"];
 Hamiltonian[hx_,hz_,J_]:=hx*Hx+hz*Hz-J*JJ;
 
 
-sizeH=ByteCount[H = Hamiltonian[1., 0.5, 1.]];
+points = Tuples[Join[Flatten[Table[Subdivide[#[[i]],#[[i+1]],3][[1;;3]],{i,9}]],{2.95}],2]&[Subdivide[0.05,2.95,9]];
+
+LaunchKernels[6];
+eigenvalues = 
+	ParallelTable[
+		Module[{hz, J, H},
+		{hz, J} = i;
+		H = Normal[Hamiltonian[1., hz, J]];
+		Flatten[{{hz, J}, Eigenvalues[H]}]
+		]
+	, {i, points},
+	DistributedContexts->Full, Method->"CoarsestGrained"];
+CloseKernels[];
+
+Export["data_eigenvalues_wisniacki_L_"<>ToString[L]<>"_hx_1.csv",Prepend[eigenvalues,{"hz,J,E_1,E_2,...,E_{2^L}"}],"CSV"];
 
 
-Print["Tama\[NTilde]o en memoria de H: ", sizeH/10.^9, " GB"];
+(* ::Subsection::Closed:: *)
+(*Nueva idea*)
 
 
-time1=AbsoluteTime[];
+(*RepeatedTiming[ConstantArray[0.,{2^#,2^#}];]&/@Range[3,10]*)
 
 
-memoryDiagonalization = MaxMemoryUsed[Eigenvalues[H]];
+(*base2=DeleteDuplicates[If[PalindromeQ[#],{#},Sort[{#,Reverse[#]}]]&/@Tuples[{0,1},L]]*)
 
 
-time2=AbsoluteTime[];
+(*Map[Identity[3]-ConstantArray[#, 3]&,base2,{2}]*)
 
 
-Print["Memoria para diagonalizar: ", memoryDiagonalization/10.^9, " GB"];
+(*(*tags*)
+L = 3;
+
+base = PositiveParitySubspaceBasis[L];
+tagsbase = Tag /@ base;
+
+AbsoluteTiming[
+(*Esto seguro se puede optimizar, pero queda para despu\[EAcute]s*)
+Hx = Module[{m ,dimSubspace = Length[tagsbase], q, l, tmp1},
+m = SparseArray[Prepend[
+	Table[
+		(* Encontrar estados \sum_j \dyad{0}{1}_j \ket{k} *)
+		tmp1 = Select[Join[ConstantArray[j,L]-IdentityMatrix[L],If[PalindromeQ[j],{},ConstantArray[Reverse[j],L]-IdentityMatrix[L]]], And@@NonNegative[#]&];
+		q = ReplaceAll[PalindromeQ[j],{True->0,False->1}];
+		(* Encontrar la posici\[OAcute]n en la base y asignar un valor *)
+		Total[
+			Table[
+				l=ReplaceAll[PalindromeQ[k], {True->0, False->1}];
+				SparseArray[Flatten[Position[tagsbase, If[MemberQ[tagsbase, Tag[k]], Tag[k], Tag[Reverse[k]]]]]-> 2.^(-(q+l)/2), dimSubspace]
+		, {k, tmp1}]
+		]
+	,{j,base[[2;;]]}]
+	,SparseArray[{},dimSubspace]
+	]
+	];
+Transpose[m]+m
+]
+]*)
 
 
-Print["Tiempo para diagonalizar: ", NumberForm[time2-time1,{Infinity,2}], " s"];
+(*Position[Map[Tag,base2,{2}], Tag@{0,0,1}][[1,1]]*)
