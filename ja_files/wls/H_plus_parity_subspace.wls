@@ -10,7 +10,7 @@ PositiveParitySubspaceBasis[L_]:=DeleteDuplicatesBy[Tuples[{0,1},L],First[Sort[{
 time1=AbsoluteTime[];
 
 
-L = 3;
+L = 16;
 
 base = PositiveParitySubspaceBasis[L];
 tagsbase = Tag /@ base;
@@ -53,7 +53,7 @@ points = Tuples[Join[Flatten[Table[Subdivide[#[[i]],#[[i+1]],3][[1;;3]],{i,9}]],
 time1=AbsoluteTime[];
 
 LaunchKernels[56];
-Print["Launched kernels :", Length[ParallelKernels[]]];
+Print["Launched kernels : ", Length[ParallelKernels[]]];
 eigenvalues = 
 	ParallelTable[
 		Module[{hz, J, H},
