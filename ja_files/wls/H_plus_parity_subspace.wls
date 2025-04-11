@@ -1,7 +1,7 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-Import["../Mathematica_packages/QMB.wl"]
+Import["../../Mathematica_packages/QMB.wl"]
 
 
 PositiveParitySubspaceBasis[L_]:=DeleteDuplicatesBy[Tuples[{0,1},L],First[Sort[{#,Reverse[#]}]]&]
