@@ -50,7 +50,10 @@ Hamiltonian[hx_,hz_,J_]:=hx*Hx+hz*Hz-J*JJ;
 
 points = Tuples[Join[Flatten[Table[Subdivide[#[[i]],#[[i+1]],3][[1;;3]],{i,9}]],{2.95}],2]&[Subdivide[0.05,2.95,9]];
 
-LaunchKernels[6];
+time1=AbsoluteTime[];
+
+LaunchKernels[56];
+Print["Launched kernels :", Length[ParallelKernels[]]];
 eigenvalues = 
 	ParallelTable[
 		Module[{hz, J, H},
@@ -61,6 +64,9 @@ eigenvalues =
 	, {i, points},
 	DistributedContexts->Full, Method->"CoarsestGrained"];
 CloseKernels[];
+
+time2=AbsoluteTime[];
+Print["Tiempo diagonalizaciones: "<>ToString[NumberForm[time2-time1,{Infinity,2}]]<>" s"];
 
 Export["data_eigenvalues_wisniacki_L_"<>ToString[L]<>"_hx_1.csv",Prepend[eigenvalues,{"hz,J,E_1,E_2,...,E_{2^L}"}],"CSV"];
 
