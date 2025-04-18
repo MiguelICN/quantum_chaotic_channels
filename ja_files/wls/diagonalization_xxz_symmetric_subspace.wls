@@ -35,7 +35,7 @@ SxSxPlusSySy=Module[
 	},
 	indicesones=SxSxPlusSySy["ExplicitPositions"];
 	intersection=Intersection[basisSubspace,indicesones];
-	ArrayReshape[SparseArray[ParallelMap[Flatten[Position[basisSubspace,#]]->SxSxPlusSySy[[#[[1]],#[[2]]]]&,intersection,DistributedContexts->Full, Method->"CoarsestGrained"],dimsubspace^2],{dimsubspace,dimsubspace}]
+	ArrayReshape[SparseArray[Map[Flatten[Position[basisSubspace,#]]->SxSxPlusSySy[[#[[1]],#[[2]]]]&,intersection,DistributedContexts->Full, Method->"CoarsestGrained"],dimsubspace^2],{dimsubspace,dimsubspace}]
 ]
 
 
