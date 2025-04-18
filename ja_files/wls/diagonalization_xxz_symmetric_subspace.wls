@@ -4,16 +4,17 @@
 Import["../../Mathematica_packages/QMB.wl"]
 
 
-(*L = 18;
+L = 18;
 k = 7;(*subspace of k spins up*)
 d = 9;(*defect site*)
-Jz = 1.;*)
+Jz = 1.;
 
 
-L = 3;
+(*prueba, funciono*)
+(*L = 3;
 k = 2;(*subspace of k spins up*)
 d = 1;(*defect site*)
-Jz = 1.;
+Jz = 1.;*)
 
 
 LaunchKernels[30];
