@@ -58,7 +58,7 @@ eigenvalues =
 	ParallelTable[
 		Module[{\[CurlyEpsilon], Jxy, H},
 		{\[CurlyEpsilon], Jxy} = i;
-		H = Normal[Jxy*SxSxPlusSySy + Jz*SzSz + \[CurlyEpsilon]*Sz];
+		H = Normal[Jxy/4*SxSxPlusSySy + Jz/4*SzSz + \[CurlyEpsilon]/2*Sz];
 		Flatten[{{\[CurlyEpsilon], Jxy}, Eigenvalues[H]}]
 		]
 	, {i, points},
