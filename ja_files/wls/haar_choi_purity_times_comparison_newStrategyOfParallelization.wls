@@ -25,7 +25,7 @@ LogSpace[start_,end_,n_] := Exp@Subdivide[Log[start],Log[end],n-1];
 (*Parametros del sistema*)
 
 
-L = 8;(* espines *)
+L = 7;(* espines *)
 hx = 1.;
 
 {hz0, hzf}={0.05, 2.95};(* se considera un grid de n^2 puntos equiespaciados *)
@@ -43,7 +43,7 @@ n = 10;(* n\[UAcute]mero de puntos en el mapa *)
 (*Numero de kernels a utilizar en la paralelizacion*)
 
 
-kernels= 42;
+kernels= 6;
 
 
 (* ::Section:: *)
@@ -65,9 +65,11 @@ Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]]];
 (*Inicializar variables*)
 
 
-tiempos = LogSpace[t0, tf, tn];
+(*tiempos = LogSpace[t0, tf, tn];*)
+tiempos = Table[t, {t, 0, 50, 0.1}];
 
-points = Reverse[Tuples[{#,#}]&[Subdivide[hz0, hzf, n - 1]]];
+(*points = Reverse[Tuples[{#,#}]&[Subdivide[hz0, hzf, n - 1]]];*)
+points = {{0.05`,1.2314814814814814`}, {0.05`,0.05`}};
 lenpoints = Length[points];
 
 (* Pauli strings *)
@@ -102,12 +104,10 @@ P = Transpose[eigenvectors];
 ClearAll[U]; U[t_] := P . DiagonalMatrix[Exp[-I*eigenvalues*t/J]] . ConjugateTranspose[P];
 
 (* Crear archivo para guardar valor esperado de Haar de la pureza de Choi *)
-(**)
-HaarAvgChoiPurityFilename = "data/haar_avg_choi_purity/wisniacki/open/L_"<>ToString[L]<>"/hx_1_hz_"<>ToString[NumberForm[hz,{Infinity,2}]]<>"_J_"<>ToString[NumberForm[J,{Infinity,2}]]<>".csv";
+HaarAvgChoiPurityFilename = "data/haar_avg_choi_purity/wisniacki/open/L_"<>ToString[L]<>"/hx_1_hz_"<>ToString[NumberForm[hz,{Infinity,2}]]<>"_J_"<>ToString[NumberForm[J,{Infinity,2}]]<>"_noLogTime.csv";
 dataFile = OpenAppend[HaarAvgChoiPurityFilename];
 WriteString[dataFile, "t, promedio temporal de 0 a 100 del valor esperado de Haar de la pureza de Choi\n"];
 Close[dataFile];
-(**)
 
 (* Calcular valor esperado de Haar de la pureza de Choi para cada t *)
 Do[
@@ -133,11 +133,9 @@ Do[
 	ClearDistributedDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
 	t2 = AbsoluteTime[]; Print["(hz="<>ToString[NumberForm[hz, {Infinity, 2}]]<>", J="<>ToString[NumberForm[J, {Infinity, 2}]]<>"). t = "<>ToString[NumberForm[t, {Infinity, 2}]]<>": "<>ToString[t2 - t1]<>" s"];
 	(* Agregar {t, valor esperado de Haar de la pureza de Choi} al archivo CSV *)
-	(**)
 	dataFile = OpenAppend[HaarAvgChoiPurityFilename];
 	WriteString[dataFile, StringJoin[Riffle[ToString/@{t, haarAvgChoiPurity}, ","]]<>"\n"];
 	Close[dataFile];
-	(**)
 ,{t, tiempos}];
 
 endTime = AbsoluteTime[];
