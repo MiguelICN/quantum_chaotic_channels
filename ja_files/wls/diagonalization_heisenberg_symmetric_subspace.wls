@@ -6,8 +6,9 @@
 
 
 (* ::Text:: *)
-(*- cambiar l\[IAcute]nea del directorio*)
-(*- cambiar el numero de kernels en la paralelizacion*)
+(*- cambiar l\[IAcute]nea del directori, ya *)
+(*- cambiar el numero de kernels en la paralelizacion, ya*)
+(*- cambiar el n\[UAcute]mero de puntos para cada h, ya*)
 
 
 (* ::Section:: *)
@@ -19,18 +20,16 @@ SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que fu
 Import["../../Mathematica_packages/QMB.wl"]
 
 
-(*L = 18;
+L = 18;
 k = 7;(*subspace of k spins up*)
-d = 9;(*defect site*)
-Jz = 1.;*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
 
 
-(*prueba, funciono*)
+(*(*prueba, funciono*)
 L = 3;
-k = 2;(*subspace of k spins up*)
+k = 2;(*subspace of k spins up*)*)
 
 
 basis = Select[Tuples[{0,1}, L], Count[#,1] == k&];
@@ -57,12 +56,14 @@ Print["Construcci\[OAcute]n de SxSxPlusSySy tom\[OAcute] "<>ToString[NumberForm[
 SzSz=DiagonalMatrix[Total[(-1)^Differences[#]]&/@basis,TargetStructure->"Sparse"];
 
 
-points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 2}], 1];
+points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 30}], 1];
 
 
 time1=AbsoluteTime[];
 
-LaunchKernels[6];
+LaunchKernels[30];
+Print["Kernels: ", Length[ParallelKernels[]]];
+
 eigenvalues = 
 	ParallelTable[
 		Module[{h, j, hlist, Sz, H},
@@ -74,6 +75,7 @@ eigenvalues =
 		]
 	, {i, points},
 	DistributedContexts->Full, Method->"CoarsestGrained"];
+	
 CloseKernels[];
 
 time2=AbsoluteTime[];
@@ -88,4 +90,4 @@ eigenenergies = Table[
 	]
 , {i, points}];
 
-Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"_k_"<>ToString[k]<>".csv", Prepend[eigenenergies, "h, E_1, E_2, ... "], "CSV"]
+Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"_k_"<>ToString[k]<>".csv", Prepend[eigenenergies, "h, E_1, E_2, ... "], "CSV"];
