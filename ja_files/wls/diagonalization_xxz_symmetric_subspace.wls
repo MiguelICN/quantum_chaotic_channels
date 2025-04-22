@@ -1,6 +1,7 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
+SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];
 Import["../../Mathematica_packages/QMB.wl"]
 
 
@@ -10,15 +11,14 @@ d = 9;(*defect site*)
 Jz = 1.;
 
 
+(*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
+
+
 (*prueba, funciono*)
 (*L = 3;
 k = 2;(*subspace of k spins up*)
 d = 1;(*defect site*)
 Jz = 1.;*)
-
-
-LaunchKernels[30];
-Print["Kernels encedidos: ", Length[ParallelKernels[]]];
 
 
 basis = Select[Tuples[{0,1}, L], Count[#,1] == k&];
@@ -28,6 +28,20 @@ time1=AbsoluteTime[];
 
 
 SxSxPlusSySy=Module[
+	{SxSxPlusSySy=
+	With[{NNindices = RotateRight[Join[{1,1},ConstantArray[0,L-2]],#]&/@Range[0,L-2]},
+		N[Total[Join[Pauli/@NNindices,Pauli/@(2NNindices)]]]
+	],
+	l = FromDigits[#,2] &/@ basis + 1
+	},
+	SxSxPlusSySy[[l,l]]
+];
+
+
+(*LaunchKernels[3];
+Print["Kernels encedidos: ", Length[ParallelKernels[]]];
+AbsoluteTiming[
+SxSxPlusSySy=Module[
 	{basisSubspace=Tuples[FromDigits[#,2]+1&/@basis,2],
 	dimsubspace=Length[basis],
 	SxSxPlusSySy=With[{NNindices = RotateRight[Join[{1,1},ConstantArray[0,L-2]],#]&/@Range[0,L-2]},
@@ -35,8 +49,16 @@ SxSxPlusSySy=Module[
 	},
 	indicesones=SxSxPlusSySy["ExplicitPositions"];
 	intersection=Intersection[basisSubspace,indicesones];
-	ArrayReshape[SparseArray[Map[Flatten[Position[basisSubspace,#]]->SxSxPlusSySy[[#[[1]],#[[2]]]]&,intersection],dimsubspace^2],{dimsubspace,dimsubspace}]
+	DistributeDefinitions[basisSubspace, SxSxPlusSySy, intersection, dimsubspace];
+	ArrayReshape[SparseArray[
+		ParallelMap[
+			Flatten[Position[basisSubspace,#]]->SxSxPlusSySy[[#[[1]],#[[2]]]]&, intersection,
+			Method -> "CoarsestGrained"
+		]
+	,dimsubspace^2],{dimsubspace,dimsubspace}]
+];
 ]
+CloseKernels[];*)
 
 
 time2=AbsoluteTime[];
@@ -49,11 +71,12 @@ SzSz=DiagonalMatrix[Total[(-1)^Differences[#]]&/@basis,TargetStructure->"Sparse"
 Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
-points = Tuples[Subdivide[0.05, 5., 29],2];
+points = Tuples[Subdivide[0.05, 5., 29], 2];
 
 
 time1=AbsoluteTime[];
 
+LaunchKernels[30];
 eigenvalues = 
 	ParallelTable[
 		Module[{\[CurlyEpsilon], Jxy, H},
@@ -69,4 +92,4 @@ time2=AbsoluteTime[];
 
 Print["Tiempo diagonalizaciones: "<>ToString[NumberForm[time2 - time1,{Infinity,2}]]<>" s"];
 
-Export["../data/eigenvalues_xxz_L_"<>ToString[L]<>"_Jz_1_omega_0.csv",Prepend[eigenvalues,{"\[CurlyEpsilon],Jxy,E_1,E_2,..."}],"CSV"];
+Export["../data/eigenvalues_xxz_L_"<>ToString[L]<>"_d_"<>ToString[d]<>"_k_"<>ToString[k]<>"_Jz_1_omega_0.csv",Prepend[eigenvalues,{"\[CurlyEpsilon],Jxy,E_1,E_2,..."}],"CSV"];
