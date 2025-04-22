@@ -14,8 +14,8 @@
 (*Codigo*)
 
 
-SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en jungkook*)
-(*SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que funciona en emmy*)*)
+(*SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en jungkook*)*)
+SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que funciona en emmy*)
 Import["../../Mathematica_packages/QMB.wl"]
 
 
