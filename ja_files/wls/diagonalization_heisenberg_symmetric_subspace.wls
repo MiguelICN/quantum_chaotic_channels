@@ -90,7 +90,8 @@ Print["Tiempo diagonalizaciones: "<>ToString[NumberForm[time2 - time1,{Infinity,
 eigenenergies = Table[
 	Module[{h, j},
 		{h, j} = i;(* j indexa la realizaci\[OAcute]n de h *)
-		Flatten[Import["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", "CSV"]]
+		Flatten[Import["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", "CSV"]]
+		(*Flatten[Import["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", "CSV"]]*)
 	]
 , {i, points}];
 
