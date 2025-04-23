@@ -15,13 +15,13 @@
 (*Codigo*)
 
 
-SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*jungkook, rm, robot y r2d2*)
+SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*jungkook, rm y robot*)
 (*SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*emmy*)*)
 Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 6;(*subspace of k spins up*)
+k = 13;(*subspace of k spins up*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
@@ -61,9 +61,9 @@ points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 30}], 1];
 
 time1=AbsoluteTime[];
 
-(*LaunchKernels[6];(*emmy, jungkook, r2d2*)*)
-LaunchKernels[{"ssh://nodo1/?4","ssh://nodo2/?4","ssh://nodo3/?20","ssh://nodo4/?10"}](*robot*)
-Print["Kernels: ", Length[ParallelKernels[]], "/38"];
+LaunchKernels[15];(*emmy, jungkook, r2d2*)
+(*LaunchKernels[{"ssh://nodo1/?4","ssh://nodo2/?4","ssh://nodo3/?20","ssh://nodo4/?10"}](*robot*)*)
+Print["Kernels: ", Length[ParallelKernels[]], "/15"];
 
 eigenvalues = 
 	ParallelTable[
