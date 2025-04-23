@@ -75,7 +75,8 @@ eigenvalues =
 		hlist = RandomReal[{-h, h}, L];
 		Sz = Total[hlist[[#]]*DiagonalMatrix[(-1)^basis[[All, #]], TargetStructure->"Sparse"]&/@ Range[L]];
 		H = Normal[1/4*(SxSxPlusSySy + SzSz) + 1/2*Sz];
-		Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", Flatten[{h, Sort[Eigenvalues[H]]}], "CSV"]
+		Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", Flatten[{h, Sort[Eigenvalues[H]]}], "CSV"]
+		(*Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", Flatten[{h, Sort[Eigenvalues[H]]}], "CSV"]*)
 		]
 	, {i, points},
 	DistributedContexts->Full, Method->"CoarsestGrained"];
