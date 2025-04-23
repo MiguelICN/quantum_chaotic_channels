@@ -20,19 +20,16 @@ SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*jungkook, rm, ro
 Import["../../Mathematica_packages/QMB.wl"]
 
 
-Print[Directory[]];
-
-
-(*L = 18;
-k = 6;(*subspace of k spins up*)*)
+L = 18;
+k = 6;(*subspace of k spins up*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
 
 
-(*prueba, funciono*)
+(*(*prueba, funciono*)
 L = 3;
-k = 2;(*subspace of k spins up*)
+k = 2;(*subspace of k spins up*)*)
 
 
 basis = Select[Tuples[{0,1}, L], Count[#, 1] == k &];
