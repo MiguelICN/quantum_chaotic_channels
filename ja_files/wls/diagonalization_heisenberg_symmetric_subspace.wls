@@ -6,7 +6,7 @@
 
 
 (* ::Text:: *)
-(*- cambiar l\[IAcute]nea del directori, ya *)
+(*- cambiar l\[IAcute]nea del directorio, ya *)
 (*- cambiar el numero de kernels en la paralelizacion, ya*)
 (*- cambiar el n\[UAcute]mero de puntos para cada h, ya*)
 
@@ -15,13 +15,13 @@
 (*Codigo*)
 
 
-(*SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en jungkook*)*)
-SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que funciona en emmy*)
+SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en jungkook*)
+(*SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que funciona en emmy*)*)
 Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 7;(*subspace of k spins up*)
+k = 6;(*subspace of k spins up*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
@@ -32,7 +32,7 @@ L = 3;
 k = 2;(*subspace of k spins up*)*)
 
 
-basis = Select[Tuples[{0,1}, L], Count[#,1] == k&];
+basis = Select[Tuples[{0,1}, L], Count[#, 1] == k &];
 
 
 time1=AbsoluteTime[];
@@ -61,8 +61,9 @@ points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 30}], 1];
 
 time1=AbsoluteTime[];
 
-LaunchKernels[30];
-Print["Kernels: ", Length[ParallelKernels[]]];
+(*LaunchKernels[30];(*emmy*)*)
+LaunchKernels[{"ssh://nodo1/?4","ssh://nodo2/?4","ssh://nodo3/?20","ssh://nodo4/?10"}](*robot*)
+Print["Kernels: ", Length[ParallelKernels[]], "/38"];
 
 eigenvalues = 
 	ParallelTable[
