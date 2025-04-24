@@ -56,7 +56,7 @@ Get["../../../../../Mathematica_packages/QMB.wl"];
 
 tiempos = Table[t, {t, t0, tf, tn}];
 
-points = Flatten[Table[{i, j} , {j, 3}, {i, Subdivide[0.05, 5, 29]}], 1][[3;;]];
+points = Flatten[Table[{i, j} , {j, 30}, {i, Subdivide[0.05, 5, 29]}], 1][[3;;]];
 lenpoints = Length[points];
 
 (* Pauli strings *)
