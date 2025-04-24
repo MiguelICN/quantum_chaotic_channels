@@ -56,7 +56,7 @@ Get["../../../../../Mathematica_packages/QMB.wl"];
 
 tiempos = Table[t, {t, t0, tf, tn}];
 
-points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 30}], 1];
+points = Flatten[Table[{i, j} , {j, 2}, {i, Subdivide[0.05, 5, 29]}], 1];
 lenpoints = Length[points];
 
 (* Pauli strings *)
@@ -75,8 +75,8 @@ halfDimHPlusOne=dimH/2+1;
 
 
 (*LaunchKernels[kernels];*)
-LaunchKernels[{"ssh://nodo1/?5","ssh://nodo2/?5","ssh://nodo3/?25","ssh://nodo4/?12"}](*robot*)
-Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", 47];
+LaunchKernels[{4,"ssh://nodo1/?16","ssh://nodo2/?32","ssh://nodo3/?40","ssh://nodo4/?20"}](*robot*)
+Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", 112];
 
 Do[
 startTime = AbsoluteTime[];
