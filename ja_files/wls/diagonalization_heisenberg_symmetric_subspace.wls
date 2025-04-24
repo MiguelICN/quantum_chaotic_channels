@@ -7,8 +7,8 @@
 
 (* ::Text:: *)
 (*- cambiar l\[IAcute]nea del directorio, ya *)
+(*- cambiar k, ya*)
 (*- cambiar el numero de kernels en la paralelizacion, ya*)
-(*- cambiar el n\[UAcute]mero de puntos para cada h, ya*)
 
 
 (* ::Section:: *)
@@ -21,7 +21,7 @@ Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 13;(*subspace of k spins up*)
+k = 4;(*subspace of k spins up*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
@@ -61,7 +61,7 @@ points = Flatten[Table[{i, j} ,{i, Subdivide[0.05, 5, 29]}, {j, 30}], 1];
 
 time1=AbsoluteTime[];
 
-LaunchKernels[15];(*emmy, jungkook, r2d2*)
+LaunchKernels[30];(*emmy, jungkook, r2d2*)
 (*LaunchKernels[{"ssh://nodo1/?4","ssh://nodo2/?4","ssh://nodo3/?20","ssh://nodo4/?10"}](*robot*)*)
 Print["Kernels: ", Length[ParallelKernels[]], "/15"];
 
