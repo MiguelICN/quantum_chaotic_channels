@@ -21,7 +21,7 @@ Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 4;(*subspace of k spins up*)
+k = 5;(*subspace of k spins up*)
 
 
 (*Table[{k,L!/(k!(L-k)!)},{k,L}]*)
@@ -67,9 +67,11 @@ Print["Kernels: ", Length[ParallelKernels[]], "/15"];
 
 eigenvalues = 
 	ParallelTable[
-		Module[{h, j, hlist, Sz, H},
+		Module[{h, j, hlist, Sz, H, rand},
 		{h, j} = i;(* j indexa la realizaci\[OAcute]n de h *)
+		rand = SeedRandom[j*30284];Print["Random number: ", j*30284];
 		hlist = RandomReal[{-h, h}, L];
+		Print["hlist =  ", NumberForm[hlist, {Infinity, 2}]];
 		Sz = Total[hlist[[#]]*DiagonalMatrix[(-1)^basis[[All, #]], TargetStructure->"Sparse"]&/@ Range[L]];
 		H = Normal[1/4*(SxSxPlusSySy + SzSz) + 1/2*Sz];
 		Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", Flatten[{h, Sort[Eigenvalues[H]]}], "CSV"]
@@ -85,7 +87,7 @@ time2=AbsoluteTime[];
 Print["Tiempo diagonalizaciones: "<>ToString[NumberForm[time2 - time1,{Infinity,2}]]<>" s"];
 
 
-eigenenergies = Table[
+(*eigenenergies = Table[
 	Module[{h, j},
 		{h, j} = i;(* j indexa la realizaci\[OAcute]n de h *)
 		Flatten[Import["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/heisenberg/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv", "CSV"]]
@@ -93,4 +95,4 @@ eigenenergies = Table[
 	]
 , {i, points}];
 
-Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"_k_"<>ToString[k]<>".csv", Prepend[eigenenergies, "h, E_1, E_2, ... "], "CSV"];
+Export["../data/eigenenergies/heisenberg/L_"<>ToString[L]<>"_k_"<>ToString[k]<>".csv", Prepend[eigenenergies, "h, E_1, E_2, ... "], "CSV"];*)
