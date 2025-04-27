@@ -21,7 +21,7 @@
 (*Parametros del sistema*)
 
 
-L = 7;(* espines *)
+L = 8;(* espines *)
 
 
 (* ::Text:: *)
@@ -35,7 +35,7 @@ L = 7;(* espines *)
 (*Numero de kernels a utilizar en la paralelizacion*)
 
 
-kernels = 2;
+kernels = 1;
 
 
 (* ::Section:: *)
@@ -75,7 +75,7 @@ halfDimHPlusOne=dimH/2+1;
 
 
 (*LaunchKernels[kernels];*)
-LaunchKernels[{4,"ssh://nodo1/?16","ssh://nodo2/?32","ssh://nodo3/?40","ssh://nodo4/?20"}](*robot*)
+(*LaunchKernels[{4,"ssh://nodo1/?16","ssh://nodo2/?32","ssh://nodo3/?40","ssh://nodo4/?20"}](*robot*)*)
 Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", 112];
 
 Do[
