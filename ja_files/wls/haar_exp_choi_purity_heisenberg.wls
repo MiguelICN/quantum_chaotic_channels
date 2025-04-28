@@ -9,7 +9,7 @@
 (*Modifiqu\[EAcute]*)
 (*- L*)
 (*- kernels*)
-(*- lenpoints*)
+(*- points*)
 (**)
 (*Crear carpeta L_8*)
 (**)
@@ -37,7 +37,8 @@ L = 8;(* espines *)
 (*Numero de kernels a utilizar en la paralelizacion*)
 
 
-kernels = 1;
+(*kernels = 30;*)
+kernels = {4, 20, 40, 32, 16};
 
 
 (* ::Section:: *)
@@ -58,7 +59,7 @@ Get["../../../../../Mathematica_packages/QMB.wl"];
 
 tiempos = Table[t, {t, t0, tf, tn}];
 
-points = Flatten[Table[{i, j} , {j, 30}, {i, Subdivide[0.05, 5, 29]}], 1][[3;;]];
+points = Flatten[Table[{i, j} , {j, 30}, {i, Subdivide[0.05, 5, 29]}], 1][[Drop[Range[900],{3,6}]]];
 lenpoints = Length[points];
 
 (* Pauli strings *)
