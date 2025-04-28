@@ -77,9 +77,10 @@ halfDimH=dimH/2;
 halfDimHPlusOne=dimH/2+1;
 
 
-(*LaunchKernels[kernels];*)
-LaunchKernels[{4,"ssh://nodo1/?10","ssh://nodo2/?10","ssh://nodo3/?32","ssh://nodo4/?16"}](*robot*)
-Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", 72];
+numkernels = Total[kernels];
+kernels = Prepend[StringJoin[#1, ToString[#2]]&@@@Transpose[{{"ssh://nodo1/?","ssh://nodo2/?","ssh://nodo3/?","ssh://nodo4/?"}, kernels[[2;;]]}], kernels[[1]]];
+(*LaunchKernels[kernels];(*emmy, jungkook, r2d2*)*)
+Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", numkernels];
 
 Do[
 startTime = AbsoluteTime[];
