@@ -79,7 +79,7 @@ halfDimHPlusOne=dimH/2+1;
 
 numkernels = Total[kernels];
 kernels = Prepend[StringJoin[#1, ToString[#2]]&@@@Transpose[{{"ssh://nodo1/?","ssh://nodo2/?","ssh://nodo3/?","ssh://nodo4/?"}, kernels[[2;;]]}], kernels[[1]]];
-(*LaunchKernels[kernels];(*emmy, jungkook, r2d2*)*)
+LaunchKernels[kernels];
 Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", numkernels];
 
 Do[
