@@ -38,7 +38,7 @@ L = 8;(* espines *)
 
 
 (*kernels = 30;*)
-kernels = {4, 20, 40, 32, 16};
+kernels = {1, 20, 40, 30, 10};
 
 
 (* ::Section:: *)
@@ -59,12 +59,11 @@ Get["../../../../../Mathematica_packages/QMB.wl"];
 
 tiempos = Table[t, {t, t0, tf, tn}];
 
-points = Flatten[Table[{i, j} , {j, 30}, {i, Subdivide[0.05, 5, 29]}], 1][[Drop[Range[900],{3,6}]]];
+points = Flatten[Table[{i, j} , {j, 30}, {i, Subdivide[0.05, 5, 29]}], 1][[279;;]];
 lenpoints = Length[points];
 
 (* Pauli strings *)
 pauliIndices = Tuples[Range[0,3],L-1];
-pauliStrings = Pauli /@ pauliIndices;
 
 (* Constantes que aparecen dentro de la suma del promedio de Haar *)
 constants = (1/2)^2*(1/12)^(L-1)*Power[3., (L-1) - Count[#, x_/; x!=0]] & /@ pauliIndices;
@@ -85,7 +84,7 @@ Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]], "/", numk
 Do[
 startTime = AbsoluteTime[];
 
-{h, j} = i;(* j indexa la realizaci\[OAcute]n de h *)
+{h, j} = points[[i]];(* j indexa la realizaci\[OAcute]n de h *)
 hlist = RandomReal[{-h, h}, L];
 
 (* Crear Hamiltoniano y diagonalizar *)
@@ -98,15 +97,10 @@ P = Transpose[eigenvectors];
 (* Operador de evoluci\[OAcute]n *)
 ClearAll[U]; U[t_] := P . DiagonalMatrix[Exp[-I*eigenvalues*t]] . ConjugateTranspose[P];
 
-(* Crear archivo para guardar valor esperado de Haar de la pureza de Choi *)
-HaarAvgChoiPurityFilename = "h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv";
-dataFile = OpenAppend[HaarAvgChoiPurityFilename];
-WriteString[dataFile, "t, valor esperado de Haar de la pureza de Choi\n"];
-Close[dataFile];
-(*--------------------------------------------------------*)
-
 (* Calcular valor esperado de Haar de la pureza de Choi para cada t *)
-Do[
+DistributeDefinitions[U, Pauli, L];
+choipurity = {}; SetSharedVariable[choipurity];
+ParallelDo[
 	t1 = AbsoluteTime[];
 	
 	(* Asignar el operador de evoluci\[OAcute]n a una variable (para no repetir en cada t\[EAcute]rmino de la suma del valor esperado de Haar) *)
@@ -115,13 +109,13 @@ Do[
 	{{uDg11, uDg12}, {uDg21, uDg22}} = {{uDg[[1;;halfDimH, 1;;halfDimH]], uDg[[1;;halfDimH, halfDimHPlusOne;;dimH]]}, {uDg[[halfDimHPlusOne;;dimH, 1;;halfDimH]], uDg[[halfDimHPlusOne;;dimH, halfDimHPlusOne;;dimH]]}};
 	(*--------------------------------------------------------*)
 	
-	DistributeDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
+	(*DistributeDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];*)
 	haarAvgChoiPurity = 
 	Total[
-		ParallelTable[
-		With[{ps = pauliStrings[[i]], c = constants[[i]]},
+		Table[
+		With[{c = constants[[i]]},
 			(* Calcular \Tr_S( U(t).\sigma .U^\dagger(t) ) *)
-			A = u11 . # . uDg11 + u12 . # . uDg21 + u21 . # . uDg12 + u22 . # . uDg22 &[ps];
+			A = u11 . # . uDg11 + u12 . # . uDg21 + u21 . # . uDg12 + u22 . # . uDg22 &[Pauli[IntegerDigits[i-1, 4, L - 1]]];
 			(* Calcular la pureza de A y multiplicarlo por su respectiva constante *)
 			Chop[c * Total[Abs[A]^2, 2]]
 		]
@@ -131,15 +125,14 @@ Do[
 	ClearDistributedDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
 	
 	t2 = AbsoluteTime[];
-	Print["h = "<>ToString[NumberForm[h, {Infinity, 2}]]<>"). t = "<>ToString[NumberForm[t, {Infinity, 1}]]<>": "<>ToString[NumberForm[t2-t1, {Infinity, 2}]]<>" s"];
-	
-	(* Agregar {t, valor esperado de Haar de la pureza de Choi} al archivo CSV *)
-	dataFile = OpenAppend[HaarAvgChoiPurityFilename];
-	WriteString[dataFile, StringJoin[Riffle[ToString/@{t, haarAvgChoiPurity}, ","]]<>"\n"];
-	Close[dataFile];
-	(*--------------------------------------------------------*)
-	
+	Print["h = "<>ToString[NumberForm[h, {Infinity, 2}]]<>". t = "<>ToString[NumberForm[t, {Infinity, 1}]]<>": "<>ToString[NumberForm[t2-t1, {Infinity, 2}]]<>" s"];
+	AppendTo[choipurity, {t, haarAvgChoiPurity}];
 ,{t, tiempos}];
+
+(* Exportar datos *)
+filename = "h_"<>ToString[NumberForm[h, {Infinity, 2}]]<>"_"<>StringPadLeft[ToString[j], 2, "0"]<>".csv";
+Export[filename, Prepend[SortBy[choipurity, First], {"t", "valor esperado de Haar de la pureza de Choi"}], "CSV"];
+(*---------------*)
 
 endTime = AbsoluteTime[];
 time = endTime-startTime;
@@ -147,6 +140,6 @@ remainingIterations = (lenpoints - i);
 AppendTo[times, time];
 Print[DateString[], ". ", "(h="<>ToString[NumberForm[h, {Infinity, 2}]]<>", j="<>ToString[NumberForm[j, {Infinity, 2}]]<>") done. ", ToString[i], "/", lenpoints,": ", ToString[NumberForm[time,{Infinity,0}]], " s. Terminar\[AAcute]: ", DateString[DatePlus[Now,Quantity[remainingIterations*Mean[times]/3600,"Hours"]]]];
 
-,{i, points}]; 
+,{i, lenpoints}]; 
 
 CloseKernels[];
