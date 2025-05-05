@@ -119,10 +119,9 @@ ParallelDo[
 			(* Calcular la pureza de A y multiplicarlo por su respectiva constante *)
 			Chop[c * Total[Abs[A]^2, 2]]
 		]
-		, {i, 4^(L-1)}
-		, Method->"CoarsestGrained", ProgressReporting->False]
+		, {i, 4^(L-1)}]
 	];
-	ClearDistributedDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
+	(*ClearDistributedDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];*)
 	
 	t2 = AbsoluteTime[];
 	Print["h = "<>ToString[NumberForm[h, {Infinity, 2}]]<>". t = "<>ToString[NumberForm[t, {Infinity, 1}]]<>": "<>ToString[NumberForm[t2-t1, {Infinity, 2}]]<>" s"];
