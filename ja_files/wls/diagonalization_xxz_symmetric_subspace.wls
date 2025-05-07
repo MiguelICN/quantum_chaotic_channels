@@ -13,7 +13,7 @@ Jz = 1.;
 
 
 (*kernels = 30;*)
-kernels = {4, 20, 36, 30, 10};
+kernels = {4, 15, 15, 32, 16};
 
 
 (*prueba, funciono*)
