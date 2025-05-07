@@ -51,7 +51,8 @@ Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
 (*points = Tuples[Subdivide[0.05, 5., 29], 2];*)
-points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];
+(*points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];*)
+points = Tuples[{Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]],Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]]}];
 
 
 (*time1=AbsoluteTime[];*)
