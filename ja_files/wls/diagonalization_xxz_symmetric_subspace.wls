@@ -50,7 +50,8 @@ SzSz=DiagonalMatrix[Total[(-1)^Differences[#]]&/@basis,TargetStructure->"Sparse"
 Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
-points = Tuples[Subdivide[0.05, 5., 29], 2];
+(*points = Tuples[Subdivide[0.05, 5., 29], 2];*)
+points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];
 
 
 (*time1=AbsoluteTime[];*)
@@ -67,7 +68,7 @@ eigenvalues =
 		{\[CurlyEpsilon], Jxy} = i;
 		t1 = AbsoluteTime[];
 		H = Normal[Jxy/4*SxSxPlusSySy + Jz/4*SzSz + \[CurlyEpsilon]/2*Sz];
-		Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/xxz/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/Jz_1_omega_0_d_9_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>"_Jxy_"<>StringPadLeft[ToString[Jxy], 2, "0"]<>".csv", Sort[Eigenvalues[H]], "CSV"];
+		Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/xxz/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/Jz_1_omega_0_d_9_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy, {Infinity, 2}]]<>".csv", Sort[Eigenvalues[H]], "CSV"];
 		t2 = AbsoluteTime[];
 		Print["\[CurlyEpsilon] = "<>ToString[NumberForm[\[CurlyEpsilon], {Infinity,2}]]<>", Jxy ="<>ToString[NumberForm[Jxy, {Infinity,2}]]<>": "<>ToString[NumberForm[t2 - t1, {Infinity, 0}]]<>" s. Faltan "<>ToString[faltan-=1]];
 		(*Flatten[{{\[CurlyEpsilon], Jxy}, Eigenvalues[H]}]*)
@@ -84,3 +85,21 @@ Print["Tiempo diagonalizaciones: "<>ToString[NumberForm[time2 - time1,{Infinity,
 
 
 Print["Termin\[EAcute]"];
+
+
+(*SortBy[StringPadLeft[ToString[#], 2, "0"]&/@Subdivide[0.05, 5., 29]//Tally, Last]*)
+
+
+(*Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]]*)
+
+
+(*Position[StringPadLeft[ToString[#], 2, "0"]&/@Subdivide[0.05, 5., 29], "69"]*)
+
+
+(*NumberForm[Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]], {Infinity, 2}]*)
+
+
+(*Table[
+RenameFile[file, StringReplace[file, x_ ~~ StringPadLeft[ToString[i], 2, "0"]<>".csv" :> x ~~ ToString[NumberForm[i, {Infinity, 2}]]<>".csv"]]
+, {i, Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]][[4;;]]}
+, {file, FileNames["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/xxz/L_18/k_5_bakup/*Jxy_"<>StringPadLeft[ToString[i], 2, "0"]<>".csv"]}]*)
