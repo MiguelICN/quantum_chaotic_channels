@@ -131,7 +131,7 @@ Transpose[m]+m
 
 
 (*SetDirectory["/home/jadeleon/Documents/chaos_meets_channels/ja_files/wls"];*)
-SetDirectory["/home/jadeleon/Documents/chaos_meet_channels/ja_files/wls"];
+SetDirectory["/home/miguel.gonzalez/Documents/chaos_meet_channels/ja_files/wls"];(*emmy*)
 Import["../../Mathematica_packages/QMB.wl"];
 
 
