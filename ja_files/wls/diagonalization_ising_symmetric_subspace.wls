@@ -194,7 +194,7 @@ Hamiltonian[hx_, hz_, J_] := hx*TotalSigmaXOdd + hz*TotalSigmaZOdd - J*TotalSigm
 points = Tuples[Join[Flatten[Table[Subdivide[#[[i]],#[[i+1]],3][[1;;3]],{i,9}]],{2.95}],2]&[Subdivide[0.05,2.95,9]];
 faltan = Length[points]; 
 
-LaunchKernels[7];
+LaunchKernels[56];
 Print["Launched kernels : ", Length[ParallelKernels[]]];
 DistributeDefinitions[Hamiltonian];
 SetSharedVariable[faltan];
@@ -216,7 +216,7 @@ CloseKernels[];
 Print["Termin\[EAcute]"];
 
 
-{#,784/#}&/@Range[2,10]
+(*{#,784/#}&/@Range[56,64]*)
 
 
 (* ::Title::Closed:: *)
