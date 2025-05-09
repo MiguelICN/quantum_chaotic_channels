@@ -130,7 +130,8 @@ Transpose[m]+m
 (*Odd parity subspace*)
 
 
-SetDirectory["/home/jadeleon/Documents/chaos_meets_channels/ja_files/wls"];
+(*SetDirectory["/home/jadeleon/Documents/chaos_meets_channels/ja_files/wls"];*)
+SetDirectory["/home/jadeleon/Documents/chaos_meet_channels/ja_files/wls"];
 Import["../../Mathematica_packages/QMB.wl"];
 
 
