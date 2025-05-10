@@ -135,7 +135,7 @@ SetDirectory["/home/miguel.gonzalez/Documents/chaos_meet_channels/ja_files/wls"]
 Import["../../Mathematica_packages/QMB.wl"];
 
 
-L = 10; (*hx = 1.*)
+L = 16; (*hx = 1.*)
 
 
 (* ::Text:: *)
