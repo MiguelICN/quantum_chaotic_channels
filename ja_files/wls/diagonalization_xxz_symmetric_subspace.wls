@@ -78,7 +78,7 @@ eigenvalues =
 		(*Flatten[{{\[CurlyEpsilon], Jxy}, Eigenvalues[H]}]*)
 		]
 	, {i, points},
-	DistributedContexts->Full, Method->"CoarsestGrained">];
+	DistributedContexts->Full, Method->"CoarsestGrained"];
 CloseKernels[];
 
 (*time2=AbsoluteTime[];
