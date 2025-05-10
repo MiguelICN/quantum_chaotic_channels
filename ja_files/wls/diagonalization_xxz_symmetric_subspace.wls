@@ -7,13 +7,16 @@ Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 5;(*subspace of k spins up*)
+k = 6;(*subspace of k spins up*)
 d = 9;(*defect site*)
 Jz = 1.;
 
 
+(*Table[{k,L!/(k!(L-k)!)},{k,0,L}]*)
+
+
 (*kernels = 30;*)
-kernels = {4, 15, 15, 32, 16};
+kernels = {4, 8, 8, 32, 16};
 
 
 (*prueba, funciono*)
@@ -50,9 +53,9 @@ SzSz=DiagonalMatrix[Total[(-1)^Differences[#]]&/@basis,TargetStructure->"Sparse"
 Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
-(*points = Tuples[Subdivide[0.05, 5., 29], 2];*)
+points = Tuples[Subdivide[0.05, 5., 29], 2];
 (*points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];*)
-points = Tuples[{Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]],Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]]}];
+(*points = Tuples[{Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]],Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]]}];*)
 
 
 (*time1=AbsoluteTime[];*)
@@ -75,7 +78,7 @@ eigenvalues =
 		(*Flatten[{{\[CurlyEpsilon], Jxy}, Eigenvalues[H]}]*)
 		]
 	, {i, points},
-	DistributedContexts->Full, Method -> "FinestGrained"];
+	DistributedContexts->Full, Method->"CoarsestGrained">];
 CloseKernels[];
 
 (*time2=AbsoluteTime[];
