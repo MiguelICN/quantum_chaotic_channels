@@ -135,7 +135,7 @@ SetDirectory["/home/miguel.gonzalez/Documents/chaos_meet_channels/ja_files/wls"]
 Import["../../Mathematica_packages/QMB.wl"];
 
 
-L = 16; (*hx = 1.*)
+L = 3; (*hx = 1.*)
 
 
 (* ::Text:: *)
@@ -184,7 +184,7 @@ Print["Construcci\[OAcute]n de TotalSigmaXOdd tom\[OAcute] "<>ToString[NumberFor
 (*Guardar TotalSigmaXOdd en un CSV:*)
 
 
-Export["../data/eigenenergies/ising/TotalSigmaXOdd_L_"<>ToString[L]<>".csv", TotalSigmaXOdd, "CSV"];
+Export["../data/eigenenergies/ising/TotalSigmaXOdd_L_"<>ToString[L]<>".mx", TotalSigmaXOdd];
 
 
 TotalSigmaZOdd = DiagonalMatrix[Total[(-1)^#]&/@repElementOddBasis, TargetStructure->"Sparse"];
@@ -205,7 +205,7 @@ ParallelDo[
 	t1 = AbsoluteTime[];
 	H = Normal[Hamiltonian[1., hz, J]];
 	eigenvals = Chop[Eigenvalues[H]];
-	Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/ising/L_"<>ToString[L]<>"/odd/hx_1_hz_"<>ToString[NumberForm[hz, {Infinity, 2}]]<>"_J_"<>ToString[NumberForm[J, {Infinity, 2}]]<>".csv", Sort[eigenvals], "CSV"];
+	Export["../data/eigenenergies/ising/L_"<>ToString[L]<>"/odd/hx_1_hz_"<>ToString[NumberForm[hz, {Infinity, 2}]]<>"_J_"<>ToString[NumberForm[J, {Infinity, 2}]]<>".csv", Sort[eigenvals], "CSV"];
 	t2 = AbsoluteTime[];
 	Print["hz = "<>ToString[NumberForm[hz, {Infinity,2}]]<>", J ="<>ToString[NumberForm[J, {Infinity,2}]]<>": "<>ToString[NumberForm[t2 - t1, {Infinity, 0}]]<>" s. Faltan "<>ToString[faltan-=1]];
 	]
