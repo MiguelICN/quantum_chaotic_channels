@@ -7,7 +7,7 @@ Import["../../Mathematica_packages/QMB.wl"]
 
 
 L = 18;
-k = 6;(*subspace of k spins up*)
+k = 8;(*subspace of k spins up*)
 d = 9;(*defect site*)
 Jz = 1.;
 
@@ -15,8 +15,8 @@ Jz = 1.;
 (*Table[{k,L!/(k!(L-k)!)},{k,0,L}]*)
 
 
-(*kernels = 30;*)
-kernels = {2, 4, 4, 22, 11};
+kernels = 22;
+(*kernels = {2, 4, 4, 22, 11};*)
 
 
 (*prueba, funciono*)
@@ -53,7 +53,9 @@ SzSz=DiagonalMatrix[Total[(-1)^Differences[#]]&/@basis,TargetStructure->"Sparse"
 Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
-points = Tuples[Subdivide[0.05, 5., 29], 2];
+f[1]:=8; f[2]:=16; f[3]:=20; f[4]:=24;
+points = Catenate[Table[{p[[i]],p[[j]]},{i,4,1,-1},{j,30,f[i],-1}]];(*k = 8*)
+(*points = Tuples[Subdivide[0.05, 5., 29], 2];*)
 (*points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];*)
 (*points = Tuples[{Delete[Subdivide[0.05, 5., 29], Transpose[{{2,3,4,5,6,11,12,20,21,22,29}}]],Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]]}];*)
 
@@ -61,7 +63,7 @@ points = Tuples[Subdivide[0.05, 5., 29], 2];
 (*time1=AbsoluteTime[];*)
 
 numkernels = Total[kernels];
-kernels = Prepend[StringJoin[#1, ToString[#2]]&@@@Transpose[{{"ssh://nodo1/?","ssh://nodo2/?","ssh://nodo3/?","ssh://nodo4/?"}, kernels[[2;;]]}], kernels[[1]]];
+(*kernels = Prepend[StringJoin[#1, ToString[#2]]&@@@Transpose[{{"ssh://nodo1/?","ssh://nodo2/?","ssh://nodo3/?","ssh://nodo4/?"}, kernels[[2;;]]}], kernels[[1]]];*)
 LaunchKernels[kernels];
 Print["Kernels listos: ", Length[ParallelKernels[]], "/", numkernels];
 
