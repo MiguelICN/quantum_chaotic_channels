@@ -54,6 +54,7 @@ Sz=DiagonalMatrix[(-1)^basis[[All,d]],TargetStructure->"Sparse"]
 
 
 f[1]:=8; f[2]:=16; f[3]:=20; f[4]:=24;
+p = Subdivide[0.05,5,29];
 points = Catenate[Table[{p[[i]],p[[j]]},{i,4,1,-1},{j,30,f[i],-1}]];(*k = 8*)
 (*points = Tuples[Subdivide[0.05, 5., 29], 2];*)
 (*points = Tuples[Subdivide[0.05, 5., 29][[{2,3,4,5,6,11,12,20,21,22,29}]], 2];*)
