@@ -6,10 +6,6 @@ SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que fu
 Import["../../Mathematica_packages/QMB.wl"]
 
 
-SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en los demas*)
-Import["../../Mathematica_packages/QMB.wl"]
-
-
 Import["../data/eigenenergies/xxz/L_18/"]
 
 
