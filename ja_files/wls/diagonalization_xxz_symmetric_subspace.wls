@@ -6,6 +6,13 @@ SetDirectory["~/Documents/chaos_meet_channels/ja_files/wls"];(*Directorio que fu
 Import["../../Mathematica_packages/QMB.wl"]
 
 
+SetDirectory["~/Documents/chaos_meets_channels/ja_files/wls"];(*Directorio que funciona en los demas*)
+Import["../../Mathematica_packages/QMB.wl"]
+
+
+Import["../data/eigenenergies/xxz/L_18/"]
+
+
 L = 18;
 k = 8;(*subspace of k spins up*)
 d = 9;(*defect site*)
@@ -75,7 +82,7 @@ eigenvalues =
 		{\[CurlyEpsilon], Jxy} = i;
 		t1 = AbsoluteTime[];
 		H = Normal[Jxy/4*SxSxPlusSySy + Jz/4*SzSz + \[CurlyEpsilon]/2*Sz];
-		Export["/home/jadeleon/Documents/chaos_meets_channels/ja_files/data/eigenenergies/xxz/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/Jz_1_omega_0_d_9_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy, {Infinity, 2}]]<>".csv", Sort[Eigenvalues[H]], "CSV"];
+		Export["../data/eigenenergies/xxz/L_"<>ToString[L]<>"/k_"<>ToString[k]<>"/Jz_1_omega_0_d_9_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy, {Infinity, 2}]]<>".csv", Sort[Eigenvalues[H]], "CSV"];
 		t2 = AbsoluteTime[];
 		Print["\[CurlyEpsilon] = "<>ToString[NumberForm[\[CurlyEpsilon], {Infinity,2}]]<>", Jxy ="<>ToString[NumberForm[Jxy, {Infinity,2}]]<>": "<>ToString[NumberForm[t2 - t1, {Infinity, 0}]]<>" s. Faltan "<>ToString[faltan-=1]];
 		(*Flatten[{{\[CurlyEpsilon], Jxy}, Eigenvalues[H]}]*)
