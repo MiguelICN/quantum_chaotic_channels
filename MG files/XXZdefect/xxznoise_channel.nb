@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2623957,      49219]
-NotebookOptionsPosition[   2615400,      49082]
-NotebookOutlinePosition[   2615827,      49099]
-CellTagsIndexPosition[   2615784,      49096]
+NotebookDataLength[   2629363,      49319]
+NotebookOptionsPosition[   2615416,      49080]
+NotebookOutlinePosition[   2621234,      49199]
+CellTagsIndexPosition[   2621191,      49196]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,7 +34,7 @@ Cell[BoxData[
  CellLabel->"In[1]:=",ExpressionUUID->"d540e6d9-d36d-f248-80c8-6d9936de079e"],
 
 Cell[BoxData["\<\"C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\
-\\\\MG files\\\\Spin chains\\\\Closed XXZ with noise\"\>"], "Output",
+\\\\MG files\\\\XXZdefect\"\>"], "Output",
  CellChangeTimes->{
   3.9345796013992844`*^9, 3.934626050066126*^9, 3.9346261899948387`*^9, 
    3.934626935670843*^9, 3.934636296041521*^9, 3.9346577397702007`*^9, 
@@ -59,16 +59,17 @@ Cell[BoxData["\<\"C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\
    3.940540428547058*^9, 3.940553690298317*^9, 3.940556025549204*^9, 
    3.9406678477110996`*^9, 3.9407133026720448`*^9, 3.940714540813652*^9, 
    3.940715387811756*^9, 3.9407209293804855`*^9, 3.9407449666522503`*^9, 
-   3.940885107133808*^9, 3.9410709712593384`*^9, 3.942359342718895*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"cb2288d1-3778-b44a-8ff3-31e5bd508c7a"]
+   3.940885107133808*^9, 3.9410709712593384`*^9, 3.942359342718895*^9, 
+   3.9591158602581635`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"7c7e2338-35b1-6648-a074-206c49f577bf"]
 }, Open  ]],
 
 Cell[BoxData[{
- RowBox[{"Get", "[", 
-  "\"\<C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\\\\\
+ RowBox[{"Get", 
+  "[", "\"\<C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\\\\\
 Mathematica_packages\\\\QMB.wl\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"Get", "[", 
-  "\"\<C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\\\\\
+ RowBox[{"Get", 
+  "[", "\"\<C:\\\\Users\\\\Miguel\\\\Github\\\\quantum_chaotic_channels\\\\\
 Mathematica_packages\\\\Chaometer.wl\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.933264530818556*^9, 3.933264550092129*^9}, {
   3.933275665000987*^9, 3.933275691004708*^9}, {3.934047313769492*^9, 
@@ -133,8 +134,7 @@ Cell[BoxData[{
       RowBox[{"Differences", "[", "eigenvalues", "]"}], "]"}], "]"}], "]"}]}],
    ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Clear", "[", "SurvivalProbability", "]"}], 
-  ";"}], "\[IndentingNewLine]", 
+  RowBox[{"Clear", "[", "SurvivalProbability", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"SurvivalProbability", "[", 
@@ -238,8 +238,7 @@ Cell[BoxData[{
        RowBox[{"vec", "[", 
         RowBox[{"[", "3", "]"}], "]"}], ",", 
        RowBox[{"vec", "[", 
-        RowBox[{"[", "4", "]"}], "]"}]}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+        RowBox[{"[", "4", "]"}], "]"}]}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Clear", "[", "haar", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -272,8 +271,7 @@ Cell[BoxData[{
             RowBox[{"All", ",", "2"}], "]"}], "]"}]}]}], "]"}]}]}], 
      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
-   RowBox[{"Define", " ", "the", " ", "Pauli", " ", "matrices"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+   RowBox[{"Define", " ", "the", " ", "Pauli", " ", "matrices"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"sx", "=", 
    RowBox[{"{", 
@@ -303,8 +301,8 @@ Cell[BoxData[{
         RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
-   "Define", " ", "collective", " ", "spin", " ", "operators", " ", "for", 
-    " ", "n", " ", "spins"}], "*)"}]}], "\[IndentingNewLine]", 
+   "Define", " ", "collective", " ", "spin", " ", "operators", " ", "for", " ",
+     "n", " ", "spins"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Clear", "[", 
    RowBox[{"Jx", ",", "Jy", ",", "Jz"}], "]"}], ";"}], "\[IndentingNewLine]", 
@@ -840,7 +838,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["1", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -853,11 +851,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     TagBox[
                     
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["33664", "SummaryItem"]}]}}, 
+                    TagBox["23364", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -1307,7 +1305,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["2", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -1319,11 +1317,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["26256", "SummaryItem"]}]}}, 
+                    TagBox["28424", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -1773,7 +1771,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["3", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -1785,11 +1783,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["17708", "SummaryItem"]}]}}, 
+                    TagBox["20988", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -2239,7 +2237,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["4", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -2251,11 +2249,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["32704", "SummaryItem"]}]}}, 
+                    TagBox["12252", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -2705,7 +2703,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["5", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -2717,11 +2715,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["36804", "SummaryItem"]}]}}, 
+                    TagBox["22224", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -3171,7 +3169,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["6", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -3183,11 +3181,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["19396", "SummaryItem"]}]}}, 
+                    TagBox["22956", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -3637,7 +3635,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["7", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -3649,11 +3647,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["4152", "SummaryItem"]}]}}, 
+                    TagBox["11332", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -4103,7 +4101,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["8", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -4115,11 +4113,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["35736", "SummaryItem"]}]}}, 
+                    TagBox["5768", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -4569,7 +4567,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["9", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -4581,11 +4579,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["12532", "SummaryItem"]}]}}, 
+                    TagBox["28504", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -5035,7 +5033,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["10", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -5047,11 +5045,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["23132", "SummaryItem"]}]}}, 
+                    TagBox["18200", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -5501,7 +5499,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["11", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -5513,11 +5511,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["27668", "SummaryItem"]}]}}, 
+                    TagBox["25924", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -5967,7 +5965,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["12", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -5979,11 +5977,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["7700", "SummaryItem"]}]}}, 
+                    TagBox["9864", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -6433,7 +6431,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["13", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -6445,11 +6443,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["24316", "SummaryItem"]}]}}, 
+                    TagBox["4384", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -6899,7 +6897,7 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox["14", "SummaryItem"]}]}, {
                     RowBox[{
-                    TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
                     TagBox["\"LocalKernels\"", "SummaryItem"]}]}, {
                     RowBox[{
@@ -6911,11 +6909,11 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
                     "\[InvisibleSpace]", 
                     TagBox[
                     "\"\\\"C:\\\\Program Files\\\\Wolfram Research\\\\Wolfram\
-\\\\14.1\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
+\\\\14.2\\\\WolframKernel\\\"\"", "SummaryItem"]}]}, {
                     RowBox[{
                     TagBox["\"ProcessID: \"", "SummaryItemAnnotation"], 
                     "\[InvisibleSpace]", 
-                    TagBox["20972", "SummaryItem"]}]}}, 
+                    TagBox["14708", "SummaryItem"]}]}}, 
                   GridBoxAlignment -> {
                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
                   AutoDelete -> False, 
@@ -6942,17 +6940,17 @@ oPs76kfofo/6Fbr/o37GGdP9IfVDzpjuH6mfovtJ6rf4nKanAhdQsLN+jPxH
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->CompressedData["
-1:eJwVylsog2EAxvHPlqFWGDfYBTVWDiUpMyu+mkMZZu3CNrGWUxQLRYhNjlHT
-WqKm1lBkWJkosbLdkXbBUsbWNnLz5cIhITzvxdOvnv5Zuj5FewxFUSVYoeQr
-UNHI0Lc1jwdV0PGbMm6FVu11zBqci7xxifwHXpDoUMS+OKHBXN3vgrb6RNsJ
-1EYmR6dVDO29j/7NwK6hCfs2FOROfxJrXhWpe3Bp0VV0CDOH+zXEgNDvvofP
-+putB3jM5mdTaoYWLVBpKji306Ejvp15RokrI4k+NXT6xWHimESZp4FSh+ej
-BXLXn1w6uFgdv94JfacFPmKb1xQgRmdvjHdQmxeyEK8F7+dBKC+rvAqRftPE
-EJ+7/affMP5Vl5ygYeimHyPnEnpXl3uJ0iPzBFFmyLkIwqkVizsMBbt15RFY
-od5n/ZA/kD/GamZoywjPxoaXWbViMVQev/TIoSTOzmmEelGTnlicwc1WQpFs
-INwKh/PnGzYg11ya9AedinThYCtD/wPkzuDL
+1:eJwVylsoQ3EAx/GDzNQpjBeXB2qzYkryMLPilFsZtrUHNrGWWxQLRciQa9S0
+lqip5VJkWJkojWIPirQHljKmbeTltIchIfP7P/z61K9vlq5H2RpFUZQYy5d+
+e0sVLHNf9XJQAW1/yaMWaNHeRq3C2cA7Tcx44vmINmVsyA7HTJW9DmitTbCe
+QG1gYniqgWVcj8HINOwYMKxtQ37O1BexKqxM2YOLC46CQ5g52KsheoWes0f4
+pr/beoLHMRkCSs0y4nkqtQHO7rTpiO+nF8PE5aEEtxraPRI/cUSqytXAMtvF
+ZxOk118dOrhQyV1vh25nnpvY4jJ6icGZu/EHqM19NhNv+R/nPigvLr95Jv2m
+kSW+dXqcP5Ab1iXFa1im/neccw1dK0vdxLIjk4EoG8u+8sHJZfOZH/J3a0oC
+sFS9H/1Lfq9oJLqRZcxDPGsMvM6qlkig6jjUJYfSuDWOAurF9XpiYTotUEGx
+rM/fDAdFc3UbkDYVJUagXZkm7G9mmcs0Cd1pYJl/+yHkCw==
   "],
- CellLabel->"Out[28]=",ExpressionUUID->"eed98973-20e1-a94d-9225-e14cb5ba3c50"]
+ CellLabel->"Out[28]=",ExpressionUUID->"04ffc2a4-6506-c448-b0ba-e679eb1afe73"]
 }, Open  ]]
 }, Closed]],
 
@@ -42903,8 +42901,8 @@ ch6GvHj9P+eYYv3pFEGq+HpLwVJSn8UgdWdxHpeqqX8Bf89l3Q==
  CellLabel->
   "Out[264]=",ExpressionUUID->"cd434182-b848-ba47-94de-1fc1e957c0ae"]
 }, Open  ]]
-}, Closed]]
-}, Closed]],
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -48379,7 +48377,7 @@ xiQ=
   "Out[485]=",ExpressionUUID->"ef2eafc5-ba78-f742-9af8-e7ec946f2776"]
 }, Open  ]]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -49080,10 +49078,112 @@ Cell[BoxData["$Aborted"], "Output",
 }, Open  ]]
 }, Closed]]
 },
-WindowSize->{1144.5, 964.5},
-WindowMargins->{{5, Automatic}, {14.5, Automatic}},
+WindowSize->{1920, 1012},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
 CellContext->Notebook,
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+InputAliases-><|"intt" -> RowBox[{"\[Integral]", 
+     RowBox[{"\[SelectionPlaceholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "dintt" -> RowBox[{
+     SubsuperscriptBox[
+     "\[Integral]", "\[SelectionPlaceholder]", "\[Placeholder]"], 
+     RowBox[{"\[Placeholder]", 
+       RowBox[{"\[DifferentialD]", "\[Placeholder]"}]}]}], "rintt" -> RowBox[{
+     UnderscriptBox["\[Integral]", 
+      RowBox[{"\[SelectionPlaceholder]", "\[Element]", "\[Placeholder]"}]], 
+     "\[Placeholder]"}], "sumt" -> RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "prodt" -> RowBox[{
+     UnderoverscriptBox["\[Product]", 
+      RowBox[{"\[SelectionPlaceholder]", "=", "\[Placeholder]"}], 
+      "\[Placeholder]"], "\[Placeholder]"}], "dt" -> RowBox[{
+     SubscriptBox["\[PartialD]", "\[SelectionPlaceholder]"], 
+     "\[Placeholder]"}], "cbrt" -> 
+  RadicalBox[
+   "\[SelectionPlaceholder]", "3", SurdForm -> True, MultilineFunction -> 
+    None], "surd" -> 
+  RadicalBox[
+   "\[SelectionPlaceholder]", "\[Placeholder]", SurdForm -> True, 
+    MultilineFunction -> None], "ket" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "Ket"], "bra" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "Bra"], "braket" -> 
+  TemplateBox[{"\[SelectionPlaceholder]", "\[Placeholder]"}, "BraKet"], 
+  "delay" -> TemplateBox[{"\[SelectionPlaceholder]"}, "SystemsModelDelay"], 
+  "grad" -> RowBox[{
+     SubscriptBox["\[Del]", "\[SelectionPlaceholder]"], "\[Placeholder]"}], 
+  "del." -> RowBox[{
+     SubscriptBox["\[Del]", "\[SelectionPlaceholder]"], ".", 
+     "\[Placeholder]"}], "delx" -> RowBox[{
+     SubscriptBox["\[Del]", "\[SelectionPlaceholder]"], "\[Cross]", 
+     "\[Placeholder]"}], "del2" -> RowBox[{
+     SubsuperscriptBox["\[Del]", "\[SelectionPlaceholder]", 2], 
+     "\[Placeholder]"}], "kd" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "KroneckerDeltaSeq"], "algs" -> 
+  TemplateBox[{}, "Algebraics"], "bools" -> TemplateBox[{}, "Booleans"], 
+  "comps" -> TemplateBox[{}, "Complexes"], "ints" -> 
+  TemplateBox[{}, "Integers"], "pris" -> TemplateBox[{}, "Primes"], "rats" -> 
+  TemplateBox[{}, "Rationals"], "reals" -> TemplateBox[{}, "Reals"], "pints" -> 
+  TemplateBox[{}, "PositiveIntegers"], "npints" -> 
+  TemplateBox[{}, "NonPositiveIntegers"], "nnints" -> 
+  TemplateBox[{}, "NonNegativeIntegers"], "nints" -> 
+  TemplateBox[{}, "NegativeIntegers"], "prats" -> 
+  TemplateBox[{}, "PositiveRationals"], "nprats" -> 
+  TemplateBox[{}, "NonPositiveRationals"], "nnrats" -> 
+  TemplateBox[{}, "NonNegativeRationals"], "nrats" -> 
+  TemplateBox[{}, "NegativeRationals"], "preals" -> 
+  TemplateBox[{}, "PositiveReals"], "npreals" -> 
+  TemplateBox[{}, "NonPositiveReals"], "nnreals" -> 
+  TemplateBox[{}, "NonNegativeReals"], "nreals" -> 
+  TemplateBox[{}, "NegativeReals"], "dlim" -> RowBox[{
+     UnderscriptBox["\[Limit]", 
+      RowBox[{"\[SelectionPlaceholder]", 
+        UnderscriptBox["\[Rule]", 
+         TemplateBox[{}, "Integers"]], "\[Infinity]"}]], "\[Placeholder]"}], 
+  "dMlim" -> RowBox[{
+     UnderscriptBox["\[MaxLimit]", 
+      RowBox[{"\[SelectionPlaceholder]", 
+        UnderscriptBox["\[Rule]", 
+         TemplateBox[{}, "Integers"]], "\[Infinity]"}]], "\[Placeholder]"}], 
+  "dmlim" -> RowBox[{
+     UnderscriptBox["\[MinLimit]", 
+      RowBox[{"\[SelectionPlaceholder]", 
+        UnderscriptBox["\[Rule]", 
+         TemplateBox[{}, "Integers"]], "\[Infinity]"}]], "\[Placeholder]"}], 
+  "tue" -> OverscriptBox["\[UndirectedEdge]", "\[Placeholder]"], "tde" -> 
+  OverscriptBox["\[DirectedEdge]", "\[Placeholder]"], "cB" -> 
+  TemplateBox[{}, "CombinatorB"], "cC" -> TemplateBox[{}, "CombinatorC"], 
+  "cI" -> TemplateBox[{}, "CombinatorI"], "cK" -> 
+  TemplateBox[{}, "CombinatorK"], "cS" -> TemplateBox[{}, "CombinatorS"], 
+  "cW" -> TemplateBox[{}, "CombinatorW"], "cY" -> 
+  TemplateBox[{}, "CombinatorY"], "notation" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation>" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongRightArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "notation<" -> RowBox[{"Notation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], " ", 
+       "\[DoubleLongLeftArrow]", " ", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "symb" -> RowBox[{"Symbolize", "[", 
+     TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], "]"}], 
+  "infixnotation" -> RowBox[{"InfixNotation", "[", 
+     RowBox[{
+       TemplateBox[{"\[SelectionPlaceholder]"}, "NotationTemplateTag"], ",", 
+       "\[Placeholder]"}], "]"}], "addia" -> RowBox[{"AddInputAlias", "[", 
+     RowBox[{"\"\[SelectionPlaceholder]\"", "\[Rule]", 
+       TemplateBox[{"\[Placeholder]"}, "NotationTemplateTag"]}], "]"}], 
+  "pattwraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationPatternTag"], 
+  "madeboxeswraper" -> 
+  TemplateBox[{"\[SelectionPlaceholder]"}, "NotationMadeBoxesTag"], "cf" -> 
+  SubscriptBox["&", "\[Placeholder]"]|>,
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (December 26, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"0215b490-0378-48df-a3dc-a4707fa18309"
 ]
@@ -49102,123 +49202,123 @@ Cell[CellGroupData[{
 Cell[580, 22, 150, 3, 96, "Title",ExpressionUUID->"eb33b5f0-96c0-ea49-a4e5-f567071e8017"],
 Cell[CellGroupData[{
 Cell[755, 29, 252, 4, 28, "Input",ExpressionUUID->"d540e6d9-d36d-f248-80c8-6d9936de079e"],
-Cell[1010, 35, 2009, 27, 32, "Output",ExpressionUUID->"cb2288d1-3778-b44a-8ff3-31e5bd508c7a"]
+Cell[1010, 35, 2010, 28, 32, "Output",ExpressionUUID->"7c7e2338-35b1-6648-a074-206c49f577bf"]
 }, Open  ]],
-Cell[3034, 65, 723, 12, 47, "Input",ExpressionUUID->"7dcdb708-2466-4868-83ec-fbb6f44d3533"],
-Cell[3760, 79, 2546, 73, 142, "Input",ExpressionUUID->"63c43dff-1744-4c3a-beaf-32903cd4cfcf"],
-Cell[6309, 154, 8118, 249, 484, "Input",ExpressionUUID->"a8e08ebf-df20-3840-97d4-de9eecf79464"],
+Cell[3035, 66, 723, 12, 47, "Input",ExpressionUUID->"7dcdb708-2466-4868-83ec-fbb6f44d3533"],
+Cell[3761, 80, 2543, 72, 142, "Input",ExpressionUUID->"63c43dff-1744-4c3a-beaf-32903cd4cfcf"],
+Cell[6307, 154, 8111, 247, 465, "Input",ExpressionUUID->"a8e08ebf-df20-3840-97d4-de9eecf79464"],
 Cell[CellGroupData[{
-Cell[14452, 407, 394, 6, 28, "Input",ExpressionUUID->"63a90b4c-cf63-894b-a235-46e2f9ad3c6b"],
-Cell[14849, 415, 395319, 6539, 216, "Output",ExpressionUUID->"eed98973-20e1-a94d-9225-e14cb5ba3c50"]
+Cell[14443, 405, 394, 6, 28, "Input",ExpressionUUID->"63a90b4c-cf63-894b-a235-46e2f9ad3c6b"],
+Cell[14840, 413, 395344, 6539, 111, "Output",ExpressionUUID->"04ffc2a4-6506-c448-b0ba-e679eb1afe73"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[410217, 6960, 312, 5, 70, "Title",ExpressionUUID->"24143bae-41ff-1843-89b4-568c60abb99e"],
+Cell[410233, 6958, 312, 5, 70, "Title",ExpressionUUID->"24143bae-41ff-1843-89b4-568c60abb99e"],
 Cell[CellGroupData[{
-Cell[410554, 6969, 170, 3, 67, "Chapter",ExpressionUUID->"2a66b1ed-49aa-3547-8b31-dc2f4cd45557"],
-Cell[410727, 6974, 2624, 64, 155, "Code",ExpressionUUID->"c4ec93ad-4b42-7b48-afcd-61c243891801"],
-Cell[413354, 7040, 1516, 37, 85, "Input",ExpressionUUID->"94ea2aa4-1432-634a-ba67-215efcfe98d8"],
-Cell[414873, 7079, 448, 11, 28, "Input",ExpressionUUID->"69b1818d-72a1-024b-912d-9bd5d1b67961"],
+Cell[410570, 6967, 170, 3, 67, "Chapter",ExpressionUUID->"2a66b1ed-49aa-3547-8b31-dc2f4cd45557"],
+Cell[410743, 6972, 2624, 64, 155, "Code",ExpressionUUID->"c4ec93ad-4b42-7b48-afcd-61c243891801"],
+Cell[413370, 7038, 1516, 37, 85, "Input",ExpressionUUID->"94ea2aa4-1432-634a-ba67-215efcfe98d8"],
+Cell[414889, 7077, 448, 11, 28, "Input",ExpressionUUID->"69b1818d-72a1-024b-912d-9bd5d1b67961"],
 Cell[CellGroupData[{
-Cell[415346, 7094, 372, 8, 28, "Input",ExpressionUUID->"5c060529-e684-4347-82bb-c72b5621448d"],
-Cell[415721, 7104, 72442, 1251, 249, "Output",ExpressionUUID->"72e80d7b-ce8a-7541-b38f-1e5d25d10771"]
+Cell[415362, 7092, 372, 8, 28, "Input",ExpressionUUID->"5c060529-e684-4347-82bb-c72b5621448d"],
+Cell[415737, 7102, 72442, 1251, 249, "Output",ExpressionUUID->"72e80d7b-ce8a-7541-b38f-1e5d25d10771"]
 }, Open  ]],
-Cell[488178, 8358, 4094, 89, 161, "Input",ExpressionUUID->"8f66b694-1b74-5c4e-abad-88c76947cf68"],
-Cell[492275, 8449, 2333, 63, 123, "Input",ExpressionUUID->"d3ab0f25-7787-2248-a436-8828d2bfef7f"],
+Cell[488194, 8356, 4094, 89, 161, "Input",ExpressionUUID->"8f66b694-1b74-5c4e-abad-88c76947cf68"],
+Cell[492291, 8447, 2333, 63, 123, "Input",ExpressionUUID->"d3ab0f25-7787-2248-a436-8828d2bfef7f"],
 Cell[CellGroupData[{
-Cell[494633, 8516, 1943, 47, 85, "Input",ExpressionUUID->"af4d9c04-1147-7946-afb3-6f4d8e4b5bf3"],
-Cell[496579, 8565, 12194, 277, 548, "Output",ExpressionUUID->"a1b9ddb6-f0bd-fc4e-b564-1e11cbba5921"]
+Cell[494649, 8514, 1943, 47, 85, "Input",ExpressionUUID->"af4d9c04-1147-7946-afb3-6f4d8e4b5bf3"],
+Cell[496595, 8563, 12194, 277, 548, "Output",ExpressionUUID->"a1b9ddb6-f0bd-fc4e-b564-1e11cbba5921"]
 }, Open  ]],
-Cell[508788, 8845, 1672, 35, 85, "Input",ExpressionUUID->"c288b1de-4867-0f41-9b79-a76d0f6333ea"],
+Cell[508804, 8843, 1672, 35, 85, "Input",ExpressionUUID->"c288b1de-4867-0f41-9b79-a76d0f6333ea"],
 Cell[CellGroupData[{
-Cell[510485, 8884, 5686, 138, 218, "Input",ExpressionUUID->"828f05c5-f1ab-a848-bbf9-a961eca51a71"],
-Cell[516174, 9024, 491018, 9030, 479, "Output",ExpressionUUID->"66231e32-9cea-6141-b90b-7d87f4204981"]
+Cell[510501, 8882, 5686, 138, 218, "Input",ExpressionUUID->"828f05c5-f1ab-a848-bbf9-a961eca51a71"],
+Cell[516190, 9022, 491018, 9030, 479, "Output",ExpressionUUID->"66231e32-9cea-6141-b90b-7d87f4204981"]
 }, Open  ]],
-Cell[1007207, 18057, 2434, 66, 199, "Input",ExpressionUUID->"4b804091-dc8d-304e-a836-46cc13387da2"],
+Cell[1007223, 18055, 2434, 66, 199, "Input",ExpressionUUID->"4b804091-dc8d-304e-a836-46cc13387da2"],
 Cell[CellGroupData[{
-Cell[1009666, 18127, 2211, 53, 104, "Input",ExpressionUUID->"45119dff-d115-bf42-9550-59f0eb162296"],
-Cell[1011880, 18182, 310187, 5905, 494, "Output",ExpressionUUID->"79c6cb90-2d70-bd40-b602-3a491b2b9406"]
+Cell[1009682, 18125, 2211, 53, 104, "Input",ExpressionUUID->"45119dff-d115-bf42-9550-59f0eb162296"],
+Cell[1011896, 18180, 310187, 5905, 494, "Output",ExpressionUUID->"79c6cb90-2d70-bd40-b602-3a491b2b9406"]
 }, Open  ]],
-Cell[1322082, 24090, 2256, 64, 218, "Input",ExpressionUUID->"03fdae59-247f-2b4f-bfe4-701c3319eb9a"],
+Cell[1322098, 24088, 2256, 64, 218, "Input",ExpressionUUID->"03fdae59-247f-2b4f-bfe4-701c3319eb9a"],
 Cell[CellGroupData[{
-Cell[1324363, 24158, 6013, 154, 237, "Input",ExpressionUUID->"ca587294-e5fe-fb45-a8e9-3983754a1e39"],
-Cell[1330379, 24314, 329409, 6225, 498, "Output",ExpressionUUID->"f9e5f9cb-77cc-6441-a913-0f9dc7b44875"],
-Cell[1659791, 30541, 329494, 6225, 498, "Output",ExpressionUUID->"35ef0283-24ee-0442-8c1b-811d705d69ea"],
-Cell[1989288, 36768, 325134, 6135, 498, "Output",ExpressionUUID->"cd434182-b848-ba47-94de-1fc1e957c0ae"]
+Cell[1324379, 24156, 6013, 154, 237, "Input",ExpressionUUID->"ca587294-e5fe-fb45-a8e9-3983754a1e39"],
+Cell[1330395, 24312, 329409, 6225, 498, "Output",ExpressionUUID->"f9e5f9cb-77cc-6441-a913-0f9dc7b44875"],
+Cell[1659807, 30539, 329494, 6225, 498, "Output",ExpressionUUID->"35ef0283-24ee-0442-8c1b-811d705d69ea"],
+Cell[1989304, 36766, 325134, 6135, 498, "Output",ExpressionUUID->"cd434182-b848-ba47-94de-1fc1e957c0ae"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2314499, 42908, 178, 3, 96, "Title",ExpressionUUID->"66b887d4-6273-7940-a81d-25c91b07dd31"],
+Cell[CellGroupData[{
+Cell[2314702, 42915, 217, 4, 28, "Input",ExpressionUUID->"0eb040d3-0bd8-4146-b2d9-642ab61e71fb"],
+Cell[2314922, 42921, 13804, 321, 87, "Output",ExpressionUUID->"850c98a0-2c93-1f48-b914-1c11a6d895f2"]
+}, Open  ]],
+Cell[2328741, 43245, 6739, 124, 199, "Input",ExpressionUUID->"a3bc3708-f4cc-324a-ba53-4fca0acb2f3e"],
+Cell[2335483, 43371, 1127, 21, 47, "Input",ExpressionUUID->"7fe313d7-4246-0f4c-9afc-49eaad10173c"],
+Cell[2336613, 43394, 2418, 57, 104, "Input",ExpressionUUID->"cb04f4b4-f859-004f-ae5e-4324c806aa33"],
+Cell[2339034, 43453, 11812, 243, 522, "Input",ExpressionUUID->"724c1164-e2cb-fd45-b87e-3428da10f133"],
+Cell[2350849, 43698, 554, 13, 47, "Input",ExpressionUUID->"710fecc1-b270-a94f-8498-0b2634c185cf"],
+Cell[CellGroupData[{
+Cell[2351428, 43715, 162, 3, 67, "Chapter",ExpressionUUID->"126f473d-dc53-de4a-966b-fbc88faa1de0"],
+Cell[2351593, 43720, 6371, 129, 560, "Input",ExpressionUUID->"30dbb5fa-5532-4044-8e4a-b55c4058b3f3"],
+Cell[2357967, 43851, 7867, 176, 732, "Input",ExpressionUUID->"7a433981-14b7-f642-bbc2-55eea4b05664"],
+Cell[2365837, 44029, 4049, 98, 446, "Input",ExpressionUUID->"9fa3b077-0735-334e-84a4-5abc61bbdf92"],
+Cell[2369889, 44129, 5139, 97, 66, "Input",ExpressionUUID->"c215a75e-7ac1-1b45-94a7-6fa89bc00d97"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2375065, 44231, 157, 3, 67, "Chapter",ExpressionUUID->"10288810-170d-7b4f-9fad-f913f7ae988c"],
+Cell[2375225, 44236, 2555, 60, 104, "Input",ExpressionUUID->"5272f4c9-eee4-4f41-8bdf-59054bd93a2b"],
+Cell[2377783, 44298, 1521, 27, 28, "Input",ExpressionUUID->"ccfef43a-e6a8-6c46-87ac-0d54b62e13cd"],
+Cell[2379307, 44327, 770, 14, 28, "Input",ExpressionUUID->"a4e18d17-210a-d347-96de-ff5eca574f25"],
+Cell[2380080, 44343, 607, 17, 47, "Input",ExpressionUUID->"f4543e39-c9ae-524e-947d-4fca0c5bafcb"],
+Cell[2380690, 44362, 1847, 44, 66, "Input",ExpressionUUID->"5e92d50d-bc0c-3348-ab0d-91b2233473df"],
+Cell[CellGroupData[{
+Cell[2382562, 44410, 848, 15, 28, "Input",ExpressionUUID->"c00af00c-cd6d-e845-8014-8d92b83a905f"],
+Cell[2383413, 44427, 311, 6, 32, "Output",ExpressionUUID->"bb98e3a6-fa1f-684e-a0fe-37eeb6fe888b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2383761, 44438, 171, 3, 66, "Section",ExpressionUUID->"c1e54f3f-aad8-004f-b6f8-840a37061c98"],
+Cell[2383935, 44443, 1346, 36, 28, "Input",ExpressionUUID->"73ba0ff6-dfc9-2844-b014-41a4c40c5189"],
+Cell[2385284, 44481, 815, 19, 28, "Input",ExpressionUUID->"5b7a16a8-186a-2443-9dac-44c5d6b50f66"],
+Cell[CellGroupData[{
+Cell[2386124, 44504, 532, 11, 28, "Input",ExpressionUUID->"604ba358-c701-e243-989e-85dd45b1528d"],
+Cell[2386659, 44517, 426, 10, 26, "Message",ExpressionUUID->"36cc9f16-9f87-7048-8a91-f1d242d9d677"],
+Cell[2387088, 44529, 210, 4, 32, "Output",ExpressionUUID->"18473945-b180-234f-b672-90c07e009563"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2387347, 44539, 172, 3, 52, "Section",ExpressionUUID->"d29c1d47-7b6c-9a43-9440-3a72769a9a64"],
+Cell[2387522, 44544, 581, 16, 47, "Input",ExpressionUUID->"28dfb64d-7a23-5f4b-ac8d-11eec2b5f3ff"],
+Cell[2388106, 44562, 1726, 41, 66, "Input",ExpressionUUID->"ecc76db8-21d7-b24c-98cc-3e3d4d015f65"],
+Cell[2389835, 44605, 3044, 77, 123, "Input",ExpressionUUID->"e295bba0-71cc-6a43-847a-10c3a2be91df"],
+Cell[CellGroupData[{
+Cell[2392904, 44686, 448, 10, 28, "Input",ExpressionUUID->"3658c580-a9f8-e148-a640-caeeda9143eb"],
+Cell[2393355, 44698, 348, 5, 32, "Output",ExpressionUUID->"ff1ace49-5a2e-754b-a45a-81d35a9dc3f1"]
+}, Open  ]],
+Cell[2393718, 44706, 226, 5, 28, "Input",ExpressionUUID->"d025c366-ac1f-ee4e-b616-b62e152d2515"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2393993, 44717, 149, 3, 67, "Chapter",ExpressionUUID->"2e9dad6c-9b98-df45-847d-d80e9ea46cf1"],
+Cell[CellGroupData[{
+Cell[2394167, 44724, 215, 4, 28, "Input",ExpressionUUID->"1bdfeaca-4632-874e-b917-a289bce8c297"],
+Cell[2394385, 44730, 202, 5, 32, "Output",ExpressionUUID->"c9639b80-86e5-0940-995e-106037917f8e"]
+}, Open  ]],
+Cell[2394602, 44738, 497, 13, 28, "Input",ExpressionUUID->"f0682049-015b-bf43-9700-ca15a43bf3ae"],
+Cell[2395102, 44753, 1480, 31, 47, "Input",ExpressionUUID->"03a5c315-7d6a-854a-a94f-3afa29ffbe07"],
+Cell[CellGroupData[{
+Cell[2396607, 44788, 2883, 73, 104, "Input",ExpressionUUID->"8afa17ca-d2bd-6d46-9f0c-d8b1330d4ea0"],
+Cell[2399493, 44863, 185289, 3513, 538, "Output",ExpressionUUID->"ef2eafc5-ba78-f742-9af8-e7ec946f2776"]
 }, Open  ]]
 }, Closed]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[2314483, 42910, 178, 3, 70, "Title",ExpressionUUID->"66b887d4-6273-7940-a81d-25c91b07dd31"],
+Cell[2584843, 48383, 208, 4, 70, "Title",ExpressionUUID->"5f370459-1df4-f546-ae6c-11761afaa0d1"],
+Cell[2585054, 48389, 1411, 40, 180, "Input",ExpressionUUID->"d4e404d7-b16e-dd44-805a-4c38d530d97f"],
 Cell[CellGroupData[{
-Cell[2314686, 42917, 217, 4, 28, "Input",ExpressionUUID->"0eb040d3-0bd8-4146-b2d9-642ab61e71fb"],
-Cell[2314906, 42923, 13804, 321, 87, "Output",ExpressionUUID->"850c98a0-2c93-1f48-b914-1c11a6d895f2"]
-}, Open  ]],
-Cell[2328725, 43247, 6739, 124, 199, "Input",ExpressionUUID->"a3bc3708-f4cc-324a-ba53-4fca0acb2f3e"],
-Cell[2335467, 43373, 1127, 21, 47, "Input",ExpressionUUID->"7fe313d7-4246-0f4c-9afc-49eaad10173c"],
-Cell[2336597, 43396, 2418, 57, 104, "Input",ExpressionUUID->"cb04f4b4-f859-004f-ae5e-4324c806aa33"],
-Cell[2339018, 43455, 11812, 243, 580, "Input",ExpressionUUID->"724c1164-e2cb-fd45-b87e-3428da10f133"],
-Cell[2350833, 43700, 554, 13, 47, "Input",ExpressionUUID->"710fecc1-b270-a94f-8498-0b2634c185cf"],
-Cell[CellGroupData[{
-Cell[2351412, 43717, 162, 3, 67, "Chapter",ExpressionUUID->"126f473d-dc53-de4a-966b-fbc88faa1de0"],
-Cell[2351577, 43722, 6371, 129, 560, "Input",ExpressionUUID->"30dbb5fa-5532-4044-8e4a-b55c4058b3f3"],
-Cell[2357951, 43853, 7867, 176, 732, "Input",ExpressionUUID->"7a433981-14b7-f642-bbc2-55eea4b05664"],
-Cell[2365821, 44031, 4049, 98, 446, "Input",ExpressionUUID->"9fa3b077-0735-334e-84a4-5abc61bbdf92"],
-Cell[2369873, 44131, 5139, 97, 104, "Input",ExpressionUUID->"c215a75e-7ac1-1b45-94a7-6fa89bc00d97"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2375049, 44233, 157, 3, 67, "Chapter",ExpressionUUID->"10288810-170d-7b4f-9fad-f913f7ae988c"],
-Cell[2375209, 44238, 2555, 60, 104, "Input",ExpressionUUID->"5272f4c9-eee4-4f41-8bdf-59054bd93a2b"],
-Cell[2377767, 44300, 1521, 27, 47, "Input",ExpressionUUID->"ccfef43a-e6a8-6c46-87ac-0d54b62e13cd"],
-Cell[2379291, 44329, 770, 14, 28, "Input",ExpressionUUID->"a4e18d17-210a-d347-96de-ff5eca574f25"],
-Cell[2380064, 44345, 607, 17, 47, "Input",ExpressionUUID->"f4543e39-c9ae-524e-947d-4fca0c5bafcb"],
-Cell[2380674, 44364, 1847, 44, 66, "Input",ExpressionUUID->"5e92d50d-bc0c-3348-ab0d-91b2233473df"],
-Cell[CellGroupData[{
-Cell[2382546, 44412, 848, 15, 47, "Input",ExpressionUUID->"c00af00c-cd6d-e845-8014-8d92b83a905f"],
-Cell[2383397, 44429, 311, 6, 32, "Output",ExpressionUUID->"bb98e3a6-fa1f-684e-a0fe-37eeb6fe888b"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2383745, 44440, 171, 3, 66, "Section",ExpressionUUID->"c1e54f3f-aad8-004f-b6f8-840a37061c98"],
-Cell[2383919, 44445, 1346, 36, 47, "Input",ExpressionUUID->"73ba0ff6-dfc9-2844-b014-41a4c40c5189"],
-Cell[2385268, 44483, 815, 19, 47, "Input",ExpressionUUID->"5b7a16a8-186a-2443-9dac-44c5d6b50f66"],
-Cell[CellGroupData[{
-Cell[2386108, 44506, 532, 11, 28, "Input",ExpressionUUID->"604ba358-c701-e243-989e-85dd45b1528d"],
-Cell[2386643, 44519, 426, 10, 26, "Message",ExpressionUUID->"36cc9f16-9f87-7048-8a91-f1d242d9d677"],
-Cell[2387072, 44531, 210, 4, 32, "Output",ExpressionUUID->"18473945-b180-234f-b672-90c07e009563"]
-}, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[2387331, 44541, 172, 3, 52, "Section",ExpressionUUID->"d29c1d47-7b6c-9a43-9440-3a72769a9a64"],
-Cell[2387506, 44546, 581, 16, 47, "Input",ExpressionUUID->"28dfb64d-7a23-5f4b-ac8d-11eec2b5f3ff"],
-Cell[2388090, 44564, 1726, 41, 66, "Input",ExpressionUUID->"ecc76db8-21d7-b24c-98cc-3e3d4d015f65"],
-Cell[2389819, 44607, 3044, 77, 142, "Input",ExpressionUUID->"e295bba0-71cc-6a43-847a-10c3a2be91df"],
-Cell[CellGroupData[{
-Cell[2392888, 44688, 448, 10, 28, "Input",ExpressionUUID->"3658c580-a9f8-e148-a640-caeeda9143eb"],
-Cell[2393339, 44700, 348, 5, 32, "Output",ExpressionUUID->"ff1ace49-5a2e-754b-a45a-81d35a9dc3f1"]
-}, Open  ]],
-Cell[2393702, 44708, 226, 5, 28, "Input",ExpressionUUID->"d025c366-ac1f-ee4e-b616-b62e152d2515"]
-}, Closed]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2393977, 44719, 149, 3, 67, "Chapter",ExpressionUUID->"2e9dad6c-9b98-df45-847d-d80e9ea46cf1"],
-Cell[CellGroupData[{
-Cell[2394151, 44726, 215, 4, 28, "Input",ExpressionUUID->"1bdfeaca-4632-874e-b917-a289bce8c297"],
-Cell[2394369, 44732, 202, 5, 32, "Output",ExpressionUUID->"c9639b80-86e5-0940-995e-106037917f8e"]
-}, Open  ]],
-Cell[2394586, 44740, 497, 13, 28, "Input",ExpressionUUID->"f0682049-015b-bf43-9700-ca15a43bf3ae"],
-Cell[2395086, 44755, 1480, 31, 47, "Input",ExpressionUUID->"03a5c315-7d6a-854a-a94f-3afa29ffbe07"],
-Cell[CellGroupData[{
-Cell[2396591, 44790, 2883, 73, 104, "Input",ExpressionUUID->"8afa17ca-d2bd-6d46-9f0c-d8b1330d4ea0"],
-Cell[2399477, 44865, 185289, 3513, 538, "Output",ExpressionUUID->"ef2eafc5-ba78-f742-9af8-e7ec946f2776"]
-}, Open  ]]
-}, Closed]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2584827, 48385, 208, 4, 96, "Title",ExpressionUUID->"5f370459-1df4-f546-ae6c-11761afaa0d1"],
-Cell[2585038, 48391, 1411, 40, 180, "Input",ExpressionUUID->"d4e404d7-b16e-dd44-805a-4c38d530d97f"],
-Cell[CellGroupData[{
-Cell[2586474, 48435, 28733, 638, 2596, "Input",ExpressionUUID->"8c2c614e-833f-b940-bd20-70dfc5c37ff6"],
-Cell[2615210, 49075, 162, 3, 32, "Output",ExpressionUUID->"4386724b-9d0f-0f4a-8446-1fc33372036b"]
+Cell[2586490, 48433, 28733, 638, 2463, "Input",ExpressionUUID->"8c2c614e-833f-b940-bd20-70dfc5c37ff6"],
+Cell[2615226, 49073, 162, 3, 32, "Output",ExpressionUUID->"4386724b-9d0f-0f4a-8446-1fc33372036b"]
 }, Open  ]]
 }, Closed]]
 }
