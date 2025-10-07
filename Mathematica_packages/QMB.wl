@@ -148,6 +148,11 @@ Reshuffle::usage = "Reshuffle[m] applies the reshuffle transformation to the mat
 Reshuffle[A,m,n] reshuffles matrix A, where dim(A) = mn.";
 
 
+Quiet[
+	SuperoperatorFromU::usage = FormatUsage["DensityMatrix[\[Psi]] returns the density matrix of state vector ```\[Psi]```."];
+, {FrontEndObject::notavail, First::normal}];
+
+
 (* ::Subsection::Closed:: *)
 (*Bose-Hubbard*)
 
@@ -164,7 +169,7 @@ BosonEscapeKrausOperators2::usage = "sdfa";
 HilbertSpaceDim::usage = "HilbertSpaceDim[N, L] returns the dimension of Hilbert space of a Bose Hubbard system of N bosons and L sites.";
 
 
-FockBasis::usage = "FockBasis[N, L] returns the lexicographical-sorted Fock basis of N bosons and L sites.";
+FockBasis::usage = "FockBasis[N, M] returns the lexicographical-sorted Fock basis of N bosons in M sites.";
 
 
 SortFockBasis::usage = "SortFockBasis[fockBasis] returns fockBasis in ascending-order according to the tag of Fock states.";
@@ -212,7 +217,7 @@ FuzzyMeasurement::usage = "FuzzyMeasurement[\[Psi], \!\(\*SubscriptBox[\(p\), \(
 SpinParityEigenvectors::usage = "SpinParityEigenvectors[L] gives a list of {even, odd} eigenvectors of the L-spin system parity operator P; P\!\(\*TemplateBox[{RowBox[{SubscriptBox[\"k\", \"1\"], \",\", \"\[Ellipsis]\", \",\", SubscriptBox[\"k\", \"L\"]}]},\n\"Ket\"]\) = \!\(\*TemplateBox[{RowBox[{SubscriptBox[\"k\", \"L\"], \",\", \"\[Ellipsis]\", \",\", SubscriptBox[\"k\", \"1\"]}]},\n\"Ket\"]\), \!\(\*SubscriptBox[\(k\), \(i\)]\)=0,1.";
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Hamiltonians*)
 
 
@@ -253,13 +258,13 @@ LeaSpinChainHamiltonian::usage = FormatUsage["LeaSpinChainHamiltonian[J_{*xy*},J
 , {FrontEndObject::notavail, First::normal}];
 
 
-HeisenbergXXXwNoise::usage="HeisenbergXXXwNoise[hz,L] returns the Heisenberg XXX spin 1/2 chain with noise: \!\(\*FormBox[\(H\\\  = \\\ \*FractionBox[\(1\), \(4\)]\\\ \(\*SubsuperscriptBox[\(\[Sum]\), \(i = 1\), \(L - 1\)]\\\ \((\*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(x\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(x\)]\\\  + \\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(y\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(y\)]\\\  + \\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(z\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(z\)])\)\)\\\  + \\\ \*FractionBox[\(1\), \(2\)]\\\ \(\*SubsuperscriptBox[\(\[Sum]\), \(i = 1\), \(L\)]\*SubsuperscriptBox[\(h\), \(i\), \(z\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(z\)]\\\ \(\((open\\\ boundaries)\)\(.\)\)\)\),
-TraditionalForm]\)";
-
-
 Quiet[
 XXZOpenHamiltonian::usage = FormatUsage["XXZOpenHamiltonian[J_{*xy*},J_z,\[Omega],\[Epsilon]_d,L,d] returns the spin-1/2 chain \n H = \[Sum]_{*i=1*}^{*L-1*} ```J_{*xy*}```(S^x_i S^x_{*i+1*} + S^y_i S^y_{*i+1*}) + ```J_z```S^z_i S^z_{*i+1*} + \[Sum]_{*i=1*}^{*L*} ```\[Omega]``` S^z_i + \[Epsilon]_d S^z_d. \n [Eq. (1) in Am. J. Phys. 80, 246\[Dash]251 (2012)]."];
 , {FrontEndObject::notavail, First::normal}];
+
+
+HeisenbergXXXwNoise::usage="HeisenbergXXXwNoise[hz,L] returns the Heisenberg XXX spin 1/2 chain with noise: \!\(\*FormBox[\(H\\\  = \\\ \*FractionBox[\(1\), \(4\)]\\\ \(\*SubsuperscriptBox[\(\[Sum]\), \(i = 1\), \(L - 1\)]\\\ \((\*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(x\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(x\)]\\\  + \\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(y\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(y\)]\\\  + \\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(z\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i + 1\), \(z\)])\)\)\\\  + \\\ \*FractionBox[\(1\), \(2\)]\\\ \(\*SubsuperscriptBox[\(\[Sum]\), \(i = 1\), \(L\)]\*SubsuperscriptBox[\(h\), \(i\), \(z\)]\\\ \*SubsuperscriptBox[\(\[Sigma]\), \(i\), \(z\)]\\\ \(\((open\\\ boundaries)\)\(.\)\)\)\),
+TraditionalForm]\)";
 
 
 (* ::Subsection::Closed:: *)
@@ -391,11 +396,11 @@ MeanLevelSpacingRatio[eigenvalues_]:=Mean[Min/@Transpose[{#,1/#}]&[Ratios[Differ
 IPR[\[Psi]_] := Total[\[Psi]^4]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Quantum channels*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Reshuffle*)
 
 
@@ -412,29 +417,27 @@ Reshuffle[A_,m_,n_] := ArrayFlatten[ArrayReshape[A, {m, n, m, n}]]
 FockBasisStateAsColumnVector[FockBasisState_,N_,L_]:=Normal[SparseArray[Position[SortFockBasis[Normal[FockBasis[N,L]]][[2]],FockBasisState]->1,Binomial[N+L-1,L]]]
 
 
-(*FockBasis[N,L] computes the Fock basis for N bosons and L sites. 
-It requires the subroutines:
- * Assignationk[M,N,fockState]
-* HilbertSpaceDim[N,M]*)
-FockBasis[N_,M_]:=Module[{k,fockState},
-k=1;
-Normal[Join[
-(*First lexycographical Fock state*)
-{fockState=SparseArray[{1->N},{M}]},
-(*Rest of Fock states*)
-Table[
-(* With \[Eta] the new Fock state and n the previous one, assign Subscript[\[Eta], i]=Subscript[n, i] (1<=i<=k-1), Subscript[\[Eta], k]=Subscript[n, k]-1 y Subscript[\[Eta], i]=0 (i>=k+2) *)
-fockState=SparseArray[Join[Table[i->fockState[[i]],{i,k-1}],{k->fockState[[k]]-1}],{M}];
-(* With \[Eta] the new Fock state and n the previous one, assign Subscript[\[Eta], k+1]=N-\!\(
-\*UnderoverscriptBox[\(\[Sum]\), \(i = 1\), \(k\)]
-\*SubscriptBox[\(\[Eta]\), \(i\)]\) *)
-fockState[[k+1]]=N-Total[fockState[[1;;k]]];
-(* Compute next value of k *)
-k=Assignationk[M,N,fockState];
-fockState
-,HilbertSpaceDim[N,M]-1]
-]]
+(* ------------------------------------------------------
+FockBasis[N,M] returns the lexicographical-sorted Fock basis for N bosons in M sites.
+New implementation as of 15/Jun/2025 uses more efficient algorithm based on IntegerPartitions.
+------------------------------------------------------ *)
+FockBasis[N_, M_] := ReverseSort[Catenate[Permutations[PadRight[#, M]] & /@ IntegerPartitions[N, M]]]
+
+(* Old implementation preserved for reference *)
+(*
+FockBasis[N_, M_] := Module[{k, fockState},
+    k = 1;
+    Normal[Join[
+        {fockState = SparseArray[{1 -> N}, {M}]},
+        Table[
+            fockState = SparseArray[Join[Table[i -> fockState[[i]], {i, k - 1}], {k -> fockState[[k]] - 1}], {M}];
+            fockState[[k + 1]] = N - Total[fockState[[1 ;; k]]];
+            k = Assignationk[M, N, fockState];
+            fockState,
+        HilbertSpaceDim[N, M] - 1]
+    ]]
 ]
+*)
 
 
 SortFockBasis[fockBasis_]:=Transpose[Sort[{Tag[#],#}&/@fockBasis]]

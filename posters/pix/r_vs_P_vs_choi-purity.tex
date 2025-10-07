@@ -1,0 +1,79 @@
+\documentclass[multi=page, 11pt]{standalone}
+\usepackage{graphicx}
+\usepackage{physics}
+\graphicspath{{/home/jadeleon/Documents/doctorado/2025-2/protocolo_candidatura/gfx/chaos_meets_channels/}}
+\usepackage{tikz}
+\usepackage[svgnames]{xcolor} % Opción 'svgnames' para acceder a colores como 'DarkGreen'
+\usetikzlibrary{positioning, shadows.blur}
+\definecolor{mymagenta}{RGB}{255, 0, 255}    % Magenta puro
+\definecolor{mylime}{RGB}{191, 255, 0}       % Verde lima
+
+\newcommand{\mcD}{\mathcal{D}}
+
+\begin{document}
+
+\begin{tikzpicture}
+%------------------------------------- Panel a -------------------------------
+\begin{scope}[shift={(0,0)}]
+% Mean level spacing ratio
+\node (listdensityplotr) at (0,0) {\includegraphics[width=0.325\textwidth]{mean_level_spacing_ratio_ising_L_16_hx_1_even_parity.pdf}};
+\node[rotate=90] () at (listdensityplotr.west) [] {$J/h_x$};
+\node (barlegend) at (listdensityplotr.north) [anchor=south, inner sep=-10pt]  {\includegraphics[width=0.27\textwidth]{mean_level_spacing_ratio_ising_bar_legend.pdf}};
+\node (labelr) at (barlegend.north) [anchor=south, inner sep=10pt] {$\ev{\tilde r_n}$};
+\node () at ([xshift=-42pt]labelr.west) {(a)};
+\node () at (listdensityplotr.south) [anchor=north, inner sep=-5pt] {$h_z/h_x$};
+
+% Averaged purity
+\node (chaometer) at (4.4,0) {\includegraphics[height=0.345\textwidth]{chaometer_purity_ising_L_7_hx_1.pdf}};
+\node (legendChaometer) at (chaometer.north) [anchor=south, inner sep=-10pt]  {\includegraphics[width=0.27\textwidth]{chaometer_purity_ising_bar_legend.pdf}};
+\node (labelChaometer) at (legendChaometer.north) [anchor=south, inner sep=10pt] {$\overline{\mathcal{P}}$};
+\node () at (chaometer.south) [anchor=north, inner sep=-5pt] {$h_z/h_x$};
+
+% Averaged Choi purity
+\node (choi) at (8.95, -0.07) {\includegraphics[height=0.33\textwidth]{temporal_avg_haar_avg_choi_purity_ising_L_7_hx_1.pdf}};
+\node (legendChoi) at (choi.north) [anchor=south, inner sep=-2pt]  {\includegraphics[width=0.27\textwidth]{temporal_avg_haar_avg_choi_purity_ising_bar_legend.pdf}};
+\node (labelchoi) at (legendChoi.north) [anchor=south, inner sep=4pt] {$\ev{\Tr[\mcD(t)^2]}_{\mathrm{Haar}, t}$};
+\node () at (choi.south) [anchor=north, inner sep=-5pt] {$h_z/h_x$};
+\end{scope}
+
+%------------------------------------- Panel b -------------------------------
+\begin{scope}[shift={(0,-6)}]
+% Mean level spacing ratio 
+\node (listdensityplotr) at (0,0.05) {\includegraphics[width=0.325\textwidth]{mean_level_spacing_ratio_xxz_L_18_spinsUp_7_d_9_omega_0.pdf}};
+\node[rotate=90] () at ([xshift=-3pt,yshift=0pt]listdensityplotr.west) [] {$J_{xy}/J_z$};
+\node (barlegend) at (listdensityplotr.north) [anchor=south, inner sep=-7pt]  {\includegraphics[width=0.27\textwidth]{mean_level_spacing_ratio_ising_bar_legend.pdf}};
+\node () at ([xshift=-22pt,yshift=5pt]barlegend.west) {(b)};
+\node () at (listdensityplotr.south) [anchor=north, inner sep=-5pt] {$\varepsilon/J_z$};
+
+% Averaged purity
+\node (chaometer) at (4.47,0) {\includegraphics[height=0.333\textwidth]{chaometer_purity_xxz_open_L_7_d_3_Jz_1.00_omega_0.00.pdf}};
+\node (legendChaometer) at (chaometer.north) [anchor=south, inner sep=-2pt]  {\includegraphics[width=0.27\textwidth]{chaometer_purity_xxz_bar_legend.pdf}};
+\node () at (chaometer.south) [anchor=north, inner sep=-5pt] {$\varepsilon/J_z$};
+
+% Averaged Choi purity
+\node (choi) at (8.95, 0) {\includegraphics[height=0.333\textwidth]{temporal_avg_haar_avg_choi_purity_xxz_L_7_Jz_1_omega_0_d_3.pdf}};
+\node (legendChoi) at (choi.north) [anchor=south, inner sep=-2pt]  {\includegraphics[width=0.27\textwidth]{temporal_avg_haar_avg_choi_purity_xxz_bar_legend.pdf}};
+\node () at (choi.south) [anchor=north, inner sep=-5pt] {$\varepsilon/J_z$};
+\end{scope}
+
+\begin{scope}[anchor=north west, shift={(0,-8.9)}]
+\node[anchor=north west] (g) at (0, 0) {\includegraphics[width=0.65\textwidth]{heisenberg.pdf}};
+\node () at (g.south) [anchor=north, inner sep=-5pt] {$h$};
+\node(label1) at (1.6,-3.45) {$7$ $\uparrow$};
+\node () at ([xshift=0pt,yshift=7pt]g.north west) {(c)};
+\node(label2) at ([xshift=0pt,yshift=-5pt]label1.north) [anchor=south] {$13$ $\uparrow$};
+\node(label3) at ([xshift=0pt,yshift=-3pt]label2.north) [anchor=south, inner ysep=0pt] {$6$ $\uparrow$};
+\node(label4) at ([xshift=0pt,yshift=1pt]label3.north) [anchor=south, inner ysep=0pt] {$5$ $\uparrow$};
+\node(label5) at ([xshift=0pt,yshift=2pt]label4.north) [anchor=south, inner ysep=0pt] {$4$ $\uparrow$};
+\node() at ([xshift=-8pt,yshift=2pt]label5.north) [anchor=south, inner ysep=0pt] {$\ev{\tilde r}$};
+
+\node(labelgoe) at (4.55, -0.43) {\footnotesize $\ev{\tilde{r}}_\mathrm{GOE}$};
+\node() at ([xshift=12pt,yshift=0pt]labelgoe.east) [anchor=west, inner sep=0pt] {\footnotesize $\ev{\tilde{r}}_\mathrm{Poisson}$};
+\node(labelChoi) at ([xshift=-18pt,yshift=4pt]labelgoe.south) [anchor=north west] {\scriptsize $1 - \ev{\Tr[\mcD(t)^2]}_{\mathrm{Haar},t}$};
+\node(labelP) at ([xshift=-30pt,yshift=8pt]labelChoi.south) [anchor=north] {\scriptsize  $1- \overline{\mathcal{P}}$};
+\end{scope}
+
+%\node[fill=gray!30, opacity=0.7, text opacity=1, rounded corners, inner sep=2pt] at (3,3) {Ising w/mixed fields};
+\end{tikzpicture}
+
+\end{document}

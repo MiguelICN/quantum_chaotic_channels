@@ -10,14 +10,14 @@
 
 
 (* ::Section:: *)
-(*Par\[AAcute]metros (s\[OAcute]lo modificar esta secci\[OAcute]n)*)
+(*Par\[AAcute]metros*)
 
 
 (* ::Text:: *)
 (*Parametros del sistema*)
 
 
-L = 6;(* espines *)
+L = 7;(* espines *)
 d = 3;(* defecto *)
 Jz = 1;
 \[Omega] = 0;
@@ -27,14 +27,14 @@ Jz = 1;
 (*Tiempos*)
 
 
-{t0, tf, tn}={0., 50., 0.1};(* t inicial, t final, n\[UAcute]mero de puntos *)
+{t0, tf, deltat}={0., 49.5, 0.5};(* t inicial, t final, n\[UAcute]mero de puntos *)
 
 
 (* ::Text:: *)
 (*Numero de kernels a utilizar en la paralelizacion*)
 
 
-kernels = 24;
+(*kernels = 24;*)
 
 
 (* ::Section:: *)
@@ -47,18 +47,15 @@ kernels = 24;
 
 SetDirectory["/home/jadeleon/Documents/chaos_meets_channels/ja_files"];
 Get["../Mathematica_packages/QMB.wl"];
-LaunchKernels[kernels];
-(*LaunchKernels[{"ssh://nodo1/?18","ssh://nodo2/?33","ssh://nodo3/?30","ssh://nodo4/?14"}]*)(*para usar todos los nodos de robot*)
-Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]]];
 
 
 (* ::Text:: *)
 (*Inicializar variables*)
 
 
-tiempos = Table[t, {t, t0, tf, tn}];
+tiempos = Table[t, {t, t0, tf, deltat}];
 
-points = {{0.2193103448275862`,0.7272413793103448`}, {3.0975862068965516`,2.0817241379310345`}};
+points = Tuples[Subdivide[0.05, 5., 29], 2][[125;;]];
 lenpoints = Length[points];
 
 (* Pauli strings *)
@@ -76,6 +73,10 @@ halfDimH=dimH/2;
 halfDimHPlusOne=dimH/2+1;
 
 
+LaunchKernels[25];
+Print["N\[UAcute]mero de kernels listos: ", Length[ParallelKernels[]]];
+
+
 Do[
 startTime = AbsoluteTime[];
 
@@ -90,47 +91,50 @@ H = XXZOpenHamiltonian[Jxy, Jz, \[Omega], \[CurlyEpsilon], L, d];
 P = Transpose[eigenvectors];
 
 (* Operador de evoluci\[OAcute]n *)
-ClearAll[U]; U[t_] := P . DiagonalMatrix[Exp[-I*eigenvalues*t/Jxy]] . ConjugateTranspose[P];
+ClearAll[U]; U[t_] := P . DiagonalMatrix[Exp[-I*eigenvalues*t]] . ConjugateTranspose[P];
 
 (* Crear archivo para guardar valor esperado de Haar de la pureza de Choi *)
-HaarAvgChoiPurityFilename = "data/haar_avg_choi_purity/xxz/open/L_"<>ToString[L]<>"_d_"<>ToString[d]<>"_omega_"<>ToString[\[Omega]]<>"_Jz_1/epsilon_"<>ToString[NumberForm[\[CurlyEpsilon],{Infinity,2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy,{Infinity,2}]]<>".csv";
+(*HaarAvgChoiPurityFilename = "data/haar_avg_choi_purity/xxz/L_"<>ToString[L]<>"/d_"<>ToString[d]<>"_omega_"<>ToString[\[Omega]]<>"_Jz_1_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon],{Infinity,2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy,{Infinity,2}]]<>".csv";
 dataFile = OpenAppend[HaarAvgChoiPurityFilename];
-WriteString[dataFile, "t, promedio temporal de 0 a 50 del valor esperado de Haar de la pureza de Choi\n"];
-Close[dataFile];
+WriteString[dataFile, "'t', 'valor esperado de Haar de la pureza de Choi'\n"];
+Close[dataFile];*)
 
 (* Calcular valor esperado de Haar de la pureza de Choi para cada t *)
-Do[
+DistributeDefinitions[U, Pauli, L];
+choipurity = {}; SetSharedVariable[choipurity];
+ParallelDo[
 	t1 = AbsoluteTime[];
 	(* Asignar el operador de evoluci\[OAcute]n a una variable (para no repetir en cada t\[EAcute]rmino de la suma del valor esperado de Haar) *)
 	u = U[t]; uDg = ConjugateTranspose[u];
 	{{u11, u12}, {u21, u22}} = {{u[[1;;halfDimH, 1;;halfDimH]], u[[1;;halfDimH, halfDimHPlusOne;;dimH]]}, {u[[halfDimHPlusOne;;dimH, 1;;halfDimH]], u[[halfDimHPlusOne;;dimH, halfDimHPlusOne;;dimH]]}};
 	{{uDg11, uDg12}, {uDg21, uDg22}} = {{uDg[[1;;halfDimH, 1;;halfDimH]], uDg[[1;;halfDimH, halfDimHPlusOne;;dimH]]}, {uDg[[halfDimHPlusOne;;dimH, 1;;halfDimH]], uDg[[halfDimHPlusOne;;dimH, halfDimHPlusOne;;dimH]]}};
-	DistributeDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
-	m1 = MemoryInUse[];
+	(*DistributeDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22, Pauli];*)
 	haarAvgChoiPurity = 
 	Total[
-		ParallelTable[
-		With[{ps = pauliStrings[[i]], c = constants[[i]]},
+		Table[
+		With[{c = constants[[i]]},
 			(* Calcular \Tr_S( U(t).\sigma .U^\dagger(t) ) *)
-			A = u11 . # . uDg11 + u12 . # . uDg21 + u21 . # . uDg12 + u22 . # . uDg22 &[ps];
+			A = u11 . # . uDg11 + u12 . # . uDg21 + u21 . # . uDg12 + u22 . # . uDg22 &[Pauli[IntegerDigits[i-1, 4, L - 1]]];
 			(* Calcular la pureza de A y multiplicarlo por su respectiva constante *)
 			Chop[c * Total[Abs[A]^2, 2]]
 		]
-		, {i, 4^(L-1)}
-		, Method->"CoarsestGrained", ProgressReporting->False]
+		, {i, 4^(L-1)}]
 	];
-	ClearDistributedDefinitions[u11, u12, u21, u22, uDg11, uDg12, uDg21, uDg22];
 	t2 = AbsoluteTime[]; Print["(\[CurlyEpsilon]="<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>", Jxy="<>ToString[NumberForm[Jxy, {Infinity, 2}]]<>"). t = "<>ToString[NumberForm[t, {Infinity, 2}]]<>": "<>ToString[t2 - t1]<>" s"];
+	AppendTo[choipurity, {t, haarAvgChoiPurity}];
 	(* Agregar {t, valor esperado de Haar de la pureza de Choi} al archivo CSV *)
-	dataFile = OpenAppend[HaarAvgChoiPurityFilename];
+	(*dataFile = OpenAppend[HaarAvgChoiPurityFilename];
 	WriteString[dataFile, StringJoin[Riffle[ToString/@{t, haarAvgChoiPurity}, ","]]<>"\n"];
-	Close[dataFile];
+	Close[dataFile];*)
 ,{t, tiempos}];
+(* Exportar datos *)
+filename = "data/haar_avg_choi_purity/xxz/L_"<>ToString[L]<>"/d_"<>ToString[d]<>"_omega_"<>ToString[\[Omega]]<>"_Jz_1_epsilon_"<>ToString[NumberForm[\[CurlyEpsilon],{Infinity,2}]]<>"_Jxy_"<>ToString[NumberForm[Jxy,{Infinity,2}]]<>".csv";
+Export[filename, Prepend[SortBy[choipurity, First], {"t", "valor esperado de Haar de la pureza de Choi"}], "CSV"];
 
 endTime = AbsoluteTime[];
 time = endTime-startTime;
 remainingIterations = (lenpoints - i);
 AppendTo[times, time];
-Print[DateString[], ". ", "(hz="<>ToString[NumberForm[hz, {Infinity, 2}]]<>", J="<>ToString[NumberForm[J, {Infinity, 2}]]<>") done. ", ToString[hzAndJ], "/", lenpoints,": ", ToString[NumberForm[time,{Infinity,0}]], " s. Terminar\[AAcute]: ", DateString[DatePlus[Now,Quantity[remainingIterations*Mean[times]/3600,"Hours"]]]];
+Print[DateString[], ". ", "(\[CurlyEpsilon]="<>ToString[NumberForm[\[CurlyEpsilon], {Infinity, 2}]]<>", Jxy="<>ToString[NumberForm[Jxy, {Infinity, 2}]]<>") done. ", ToString[i], "/", lenpoints,": ", ToString[NumberForm[time,{Infinity,0}]], " s. Terminar\[AAcute]: ", DateString[DatePlus[Now,Quantity[remainingIterations*Mean[times]/3600,"Hours"]]]];
 
-,{i, lenpoints}]; 
+, {i, lenpoints}]; 
