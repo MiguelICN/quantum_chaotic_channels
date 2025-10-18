@@ -1,0 +1,275 @@
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+
+% --- Essentials ---
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{xspace}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+\usepackage{physics}
+\usepackage{amsmath}
+%\usepackage{siunitx}
+
+% --- Bibliography setup ---
+\usepackage[%
+    style=verbose,
+    backend=bibtex,
+    giveninits=true,      % Use initials for first names
+    isbn=false, url=false, doi=false, eprint=false,
+    maxcitenames=1,
+    mincitenames=1
+]{biblatex}
+
+% Custom format: Author, Journal, vol, page, (year)
+\DeclareFieldFormat[article]{journaltitle}{#1}
+\DeclareFieldFormat[article]{volume}{\textbf{#1}} % Bold volume number
+\DeclareFieldFormat[article]{pages}{#1} % Remove "p." for cleaner look
+
+% Redefine the short citation format for verbose style
+\renewbibmacro*{cite:short}{%
+  \color{gray}\tiny
+  \printtext[brackets]{%
+    \printfield{journaltitle}%
+    \setunit*{\space}%
+    \printfield{volume}%
+    \setunit*{\space}%
+    \printfield{pages}%
+    \setunit*{\space}%
+    \printtext[parens]{\printfield{year}}%
+  }
+}
+
+% Also modify the full citation format for consistency
+\renewbibmacro*{cite:full}{%
+  \color{gray}\tiny
+  \printtext[brackets]{%
+    \printfield{journaltitle}%
+    \setunit*{\space}%
+    \printfield{volume}%
+    \setunit*{\space}%
+    \printfield{pages}%
+    \setunit*{\space}%
+    \printtext[parens]{\printfield{year}}%
+  }
+}
+
+%\addbibresource{references.bib}
+\addbibresource{/home/jadeleon/Documents/doctorado/protocolo_candidatura/references.bib}
+
+
+% --- Single, clean inline citation command ---
+\newcommand{\scite}[1]{\textcolor{gray}{\scriptsize(\citeauthor{#1}, \citeyear{#1})}}
+
+% --- Colors and theme styling ---
+\definecolor{deepblue}{RGB}{46,78,126}
+\definecolor{lightblue}{RGB}{200,220,255}
+\setbeamercolor{palette primary}{bg=deepblue, fg=white}
+\setbeamercolor{palette secondary}{bg=deepblue, fg=white}
+\setbeamercolor{palette tertiary}{bg=deepblue, fg=white}
+\setbeamercolor{structure}{fg=deepblue}
+
+% --- Metadata ---
+\title{Chaos through the lens of quantum channels}
+%\subtitle{Brief Subtitle Explaining Domain}
+\date{\today}
+\author{\textbf{Jose Alfredo de Leon}\inst{1} \and 
+Miguel Gonzalez\inst{2,3} \and
+Carlos Diaz-Mejia\inst{2}}
+\institute{
+\inst{1}Instituto de Física, UNAM
+\and 
+\inst{2}Instituto de Ciencias Nucleares, UNAM
+\and
+\inst{3}Institute for Basic Science (IBS)
+}
+%\titlegraphic{\hfill\includegraphics[height=1cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+% --- Slide 1 ---
+\begin{frame}{Motivation \& Problem Statement}
+\begin{columns}[T,onlytextwidth]
+\column{0.5\textwidth}
+  \textbf{Key Challenges:}
+  \begin{itemize}
+    \item Current limitation in field %\cite{landau2013course}
+    \item Gap in existing literature %\cite{griffiths2005introduction}
+    \item Unanswered scientific question\cite{pineda_2007_universal}
+    \item Technological barrier\cite{deleon_2022_pauli} \cite{atas_2013_distribution}
+  \end{itemize}
+  
+  \vspace{0.5cm}
+  \textbf{Research Need:}
+  \begin{itemize}
+    \item Why this matters now
+    \item Potential impact \scite{jackson1999classical}
+  \end{itemize}
+
+\column{0.5\textwidth}
+  \begin{figure}
+%        \includegraphics[width=\textwidth]{motivation_figure.pdf}
+    \caption{Schematic showing the problem space \scite{taylor2005classical}}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+% --- Slide 2 ---
+\begin{frame}{Research Objectives}
+  \begin{block}{Primary Objective}
+    Development of novel method/technique/theory for...
+  \end{block}
+  
+  \begin{exampleblock}{Specific Aims}
+    \begin{enumerate}
+      \item \textbf{Aim 1:} Characterize/develop/model...
+      \item \textbf{Aim 2:} Implement/analyze/validate...
+      \item \textbf{Aim 3:} Demonstrate/compare/optimize...
+    \end{enumerate}
+  \end{exampleblock}
+  
+  \vspace{0.5cm}
+  Building upon previous work while addressing key limitations~\cite{atas_2013_distribution}.
+\end{frame}
+
+% --- Slide 3 ---
+\begin{frame}{Theoretical Framework}
+  \begin{theorem}[Key Theoretical Result]
+    \[
+    \mathcal{H} = \int_\Omega \left[\frac{1}{2}\kappa(\nabla\phi)^2 + f(\phi)\right] \dd{V}
+    \]
+    Based on Landau theory\footcite{landau2013course}
+  \end{theorem}
+  
+  \begin{alertblock}{Fundamental Equation}
+    \vspace{-0.2cm}
+    \[
+    \pdv{\psi}{t} = \mathcal{L}\psi + \mathcal{N}(\psi) + \eta(\vec{r},t)
+    \]
+    Extending previous formulations\footcite{goldstein2002classical}
+  \end{alertblock}
+  
+  \begin{itemize}
+    \item Mathematical foundation following\footcite{arfken2013mathematical}
+    \item Key assumptions and their validity
+    \item Novel theoretical contribution
+  \end{itemize}
+\end{frame}
+
+% --- Slide 4 ---
+\begin{frame}{Methodology}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.6\textwidth}
+      \textbf{Experimental/Numerical Setup:}
+      \begin{itemize}
+        \item Technique/equipment used\footcite{press2007numerical}
+        \item Parameters and conditions
+        \item Validation approach\footcite{allen2017computer}
+        \item Statistical methods\footcite{sivia2006data}
+      \end{itemize}
+      
+      \vspace{0.3cm}
+      \textbf{Innovative Aspects:}
+      \begin{itemize}
+        \item New methodology developed
+        \item Unique combination of techniques\footcite{frenkel2001understanding}
+      \end{itemize}
+
+    \column{0.4\textwidth}
+      \begin{figure}
+%        \includegraphics[width=\textwidth]{setup_diagram.pdf}
+        \caption{Experimental/computational setup\footcite{landau2014guide}}
+      \end{figure}
+  \end{columns}
+\end{frame}
+
+% --- Slide 5 ---
+\begin{frame}{Key Result 1: [Main Finding]}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.6\textwidth}
+      \begin{figure}
+%        \includegraphics[width=\textwidth]{result1.pdf}
+        \caption{Primary result showing [key finding]}
+      \end{figure}
+      
+    \column{0.4\textwidth}
+      \textbf{Observations:}
+      \begin{itemize}
+        \item Clear trend/pattern
+        \item Statistical significance\footcite{sivia2006data}
+        \item Comparison to expectation
+      \end{itemize}
+      
+      \vspace{0.5cm}
+      \textbf{Interpretation:}
+      \begin{itemize}
+        \item Physical/biological meaning
+        \item Surprising/unexpected aspect\footcite{griffiths2005introduction}
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+% --- Motivation ----
+\begin{frame}
+Motivación con una figura
+\end{frame}
+
+% --- Quantum channels ----
+\begin{frame}[t]{Canales cuánticos}
+\begin{itemize}
+\item Describen ruido cuántico, mediciones generalizadas y la \alert{dinámica 
+de sistemas cuánticos abiertos}.
+\item Mapeos CPTP: completamente positivos y que preservan la traza 
+de la matriz de densidad. 
+\begin{itemize}
+\item CP: $\mathcal E \otimes I_k \geq 0 $
+\item TP: $\Tr[\mathcal E(\rho)] = \Tr(\rho)$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% --- Quantum chaos ----
+\begin{frame}[t]{Caos cuántico}
+Caos cuántico = RMT
+
+\cite{atas_2013_distribution}
+\cite{bohigas_1984_characterization}
+\cite{berry_1997_level}
+
+\includegraphics[width=0.5\textwidth]{rmt_goe.pdf}
+\end{frame}
+
+% --- Comparison with Wisniacki's results ----
+\begin{frame}[t]{Previous}
+\cite{mirkin_2021_quantum}~\cite{mirkin_2021_sensing}
+
+
+\end{frame}
+
+% --- Quantum chaos ----
+
+% --- Quantum chaos ----
+
+% --- References slide ---
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography[heading=none]
+\end{frame}
+
+% --- Thank you slide ---
+\begin{frame}[standout]
+  \centering
+  Thank You\\
+  \vspace{1cm}
+  \small Questions?\\
+  \vspace{0.5cm}
+  \scriptsize \texttt{your.email@institution.edu}\\
+  \vspace{0.5cm}
+  \tiny References available upon request
+\end{frame}
+
+\end{document}
