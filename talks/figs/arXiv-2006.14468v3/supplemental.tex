@@ -1,0 +1,219 @@
+
+
+\begin{center}
+\textbf{\large Supplemental Material}
+\end{center}
+%%%%%%%%%% Merge with supplemental materials %%%%%%%%%%
+%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{page}{1}
+\makeatletter
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
+%%%%%%%%%% Prefix a "S" to all equations, figures, tables and reset the counter %%%%%%%%%%
+
+\nico{\section{Other physical systems}
+\subsection{Ising with tilted magnetic field}
+\label{sec_ising_tilt}
+This model consists of an Ising spin chain with a tilted magnetic field. It undergoes a quantum chaos transition for intermediate angles between the purely longitudinal and the transverse case \cite{karthik2007entanglement}. The Hamiltonian of the system with open boundary conditions is given by
+
+\begin{equation}
+H (\theta) =B \sum_{k=1}^{L} \left(\sin{\theta} \hat{S}_{k}^{x}+\cos{\theta}\hat{S}_{k}^{z} \right) + J \sum_{k=1}^{L-1}\hat{S}_{k}^{z}\hat{S}_{k+1}^{z}.
+\label{tilted}
+\end{equation}
+
+Since parity $\hat{\Pi}$ is also a conserved symmetry in this model, even and odd subspaces must be treated separately to study the usual chaos indicators as $\eta$. \nicor{For the purity analysis of the probe, we proceed exactly the same as in the main text but with a single variation: we assume that the probe does not evolve at all in the absence of coupling to the bath, i.e. we neglect its intrinsic Hamiltonian and just consider its coupling to the rest of the chain as its full Hamiltonian. This detail is important to avoid an asymmetry with respect to the ensemble of initial states under consideration and allows us to sense more accurately the chaos within the chain, as we shall see.} In Fig. \ref{ising_tilt} we show the results of the chaos indicator $\eta$ for a large chain composed of $L=14$ spins ($D=16384$) together with the averaged purity $\overline{\mathcal{P}}_{Norm}$ of the reduced system \nicor{(with and without considering the intrinsic Hamiltonian of the probe)} for different sizes of the total spin chain, both as a function of the magnetic field angle $\theta$.  
+
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Ising_tilt.pdf}
+\begin{footnotesize}
+\caption{\nico{Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$ for the reduced system considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the magnetic field angle $\theta$. For the computation of $\overline{\mathcal{P}}_{Norm}$, 50 different realizations over random initial states were considered. For the calculation of $1-\eta$, a chain composed of $L=14$ spins ($D=16384$) was selected and only the odd subspace was taken into account ($D^{odd} \approx 8192$). Parameters are set as $T=50$, $B=2$ and $J=2$.} \nicor{While in the left panel we include the Hamiltonian of the probe, in the right panel we do not.}} 
+\label{ising_tilt}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+\nicor{From the right panel of} Fig. \ref{ising_tilt}, we can see that even in the case of $L=3$, by studying the purity dynamics of one spin of the chain, we can perfectly reproduce the integrable to chaos transition. Unlike the computation of $\eta$, no symmetry considerations were taken into account for the analysis of the purity. \nicor{On the other hand, from comparing both panels it is evident that the fact of neglecting the intrinsic Hamiltonian of the probe (right panel) gave us a better estimation than in the case of considering it (left panel), mostly near the limit of $\theta \eqsim \frac{\pi}{2}$. This can be understood as follows: Let us consider the Hamiltonian of Eq. (\ref{tilted}) including the intrinsic Hamiltonian of the probe. It is easy to see that if $\theta=0$, Eq. (\ref{tilted}) is purely in the $\hat{z}$ direction and thus the $2^{L}$ eigenstates of the total Hamiltonian are the ones of the computational basis. If we consider these eigenstates and trace over the environmental degrees of freedom, the \textit{'reduced eigenstate'} of the probe is either $\ket{0}$ or $\ket{1}$, which are both pure. Therefore, if the random pure initial state of the probe falls near $\ket{0}$ or $\ket{1}$, the probe will hardly evolve since it is near an eigenstate of the Hamiltonian. On the contrary, let us consider now the opposite limit of $\theta=\pi/2$, where the system is also integrable. By diagonalizing the entire Hamiltonian and then tracing over the environmental degrees of freedom, the \textit{'reduced eigenstates'} of the probe are in general not pure. As a consequence, the initial state of the probe, which is a random pure state, is never going to fall near a \textit{'reduced eigenstate'} (since it is mixed), and so all possible initial states will strongly evolve in time. This asymmetry with respect to the initial state of the probe in the two extreme cases of integrability ($\theta=0$ and $\theta=\pi/2$), can be trivially solved by neglecting the intrinsic Hamiltonian of the probe in the model. By doing this, the \textit{'reduced eigenstate'} of the probe is always pure $\forall \, \theta$ (i.e. $\ket{0}$ and $\ket{1}$) and the asymmetry is fixed, as it is clearly evidenced in the right panel of Fig. \ref{ising_tilt}. However, as has been noted before, both panels are quite similar, with the exception of $\theta \eqsim \pi/2$.}
+
+
+
+\subsection{Heisenberg with random magnetic field}
+This system consists of a spin chain with nearest neighbour interactions (NN), coupled to a random magnetic field at each site in the $\hat{z}$ direction \cite{vznidarivc2008many}. The Hamiltonian for this model with open boundary conditions is 
+
+\begin{equation}
+H=\sum_{k=1}^{L-1}\left(\hat{S}_{k}^{x}\hat{S}_{k+1}^{x} + \hat{S}_{k}^{y}\hat{S}_{k+1}^{y} + \hat{S}_{k}^{z}\hat{S}_{k+1}^{z} \right) + \sum_{k=1}^{L} h_k^z \hat{S}_{k}^{z},     
+\label{heisenberg}
+\end{equation}
+where $\{h_k^z\}$ is a set of random variables at each site, uniformly distributed in the interval $[-h,h]$. In this model, the $\hat{z}$ component of spin $\hat{S}^z=\sum_{k=1}^L \hat{S}_k^z$ is a conserved quantity. This conservation allows a separation of the total spanned space into smaller subspaces of dimension $\hat{\mathcal{S}}_N$, where $N$ is a fixed number of spins up or down. The dimension of each subspace is given by
+
+\begin{equation}
+    D_N= \dim\left(\hat{\mathcal{S}}_N\right)= \begin{pmatrix}
+L\\
+N 
+\end{pmatrix}
+=\frac{L!}{N!(L-N)!}.
+\end{equation}
+
+Taking into consideration the symmetry mentioned, it can be shown that this model presents a Poissonian distribution for $h=0$. However, as the strength of the random magnetic field increases, the disorder is higher and the system is driven to the chaotic regime, reaching a Wigner-Dyson distribution near $h \simeq 0.5$. At last, if the disorder is too strong, there is a  many-body localization (MBL) transition \cite{avishai2002level,santos2004integrability,pal2010many,de2013ergodicity,luitz2015many}. In Fig. \ref{heisenberg} we show the results for the averaged chaos indicator $\eta$ for a large chain composed of $L=13$ spins, after performing 50 different realizations due to the stochastic nature of the random set of $\{h_k^z\}$. In this simulation, just the subspace with $N=5$ was considered ($D_5=1287$). As usual, we also plot the averaged purity $\overline{\mathcal{P}}_{Norm}$ of the reduced system for different sizes of the total spin chain, without any consideration of the symmetries present in the system. Both quantities are plotted as a function of the strength of the magnetic field $h$. 
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Heisenberg.pdf}
+\begin{footnotesize}
+\caption{\nico{Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$ for the reduced system considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the magnetic field  $h$. For the computation of $\overline{\mathcal{P}}_{Norm}$, $200$ different realizations over random initial states and random sets of $\{h_k^z\}$ were considered. For the calculation of $1-\eta$, $50$ different realizations over random sets of $\{h_k^z\}$ were considered, a chain composed of $L=13$ spins was selected and only the subspace with $N=5$ was taken into account ($D_5 \approx 1287$). Parameters are set as $T=50$.}} 
+\label{heisenberg}
+\end{footnotesize}
+\end{center}
+\end{figure}
+Quite remarkably, despite the system presents completely different symmetries and interactions in comparison to the other models that were studied in this work, the purity dynamics of a simple probe still senses the chaotic behaviour of the chain very accurately. Since in this model we have two different sources of randomness (i.e. the initial state and the magnetic field at each site are both random), is natural to observe some more noise especially for extremely short spin chains as the case of $L=3$. This noise can be smoothed out by taking more realizations over more different initial states and sets of $\{h_k^z\}$, but we can observe that even for $200$ realizations the transition can be very well detected analyzing extremely short spin chains. Interestingly, this system presents a MBL transition for strong disorder, but the interplay between the proposed measure and MBL will be addressed in a future work.   
+
+\newpage
+\subsection{Perturbed XXZ model}
+The last spin chain to be analyzed in this work consists on an anisotropic spin chain with nearest-neighbor (NN) interactions and a perturbation consisting in next-nearest-neighbor (NNN) interactions. The total Hamiltonian of the system with open boundary conditions is described by
+
+\begin{equation}
+H(\lambda)=H_0 + \lambda H_1,
+\end{equation}
+where the parameter $\lambda$ tunes the strength of the perturbation and each term of the total Hamiltonian is
+\begin{equation}
+    \begin{split}
+        & H_0= \sum_{k=1}^{L-1}\left(\hat{S}_{k}^{x}\hat{S}_{k+1}^{x} + \hat{S}_{k}^{y}\hat{S}_{k+1}^{y} +\mu \hat{S}_{k}^{z}\hat{S}_{k+1}^{z} \right) \\
+        & H_1= \sum_{k=1}^{L-2}\left(\hat{S}_{k}^{x}\hat{S}_{k+2}^{x} + \hat{S}_{k}^{y}\hat{S}_{k+2}^{y} + \mu \hat{S}_{k}^{z}\hat{S}_{k+2}^{z} \right).
+    \end{split}
+\end{equation}
+
+This system presents several symmetries that must be taken into account to observe the quantum chaos transition in a standard way \cite{santos2012onset}. This transition occurs when the perturbation term containing NNN interactions becomes comparable with the NN coupling term. If the chain is isotropic ($\mu=1$) the total spin $\hat{S}^2$ is conserved, so we must consider a case with $\mu \neq 1$ to see the transition. At the same time, this system not only presents a conservation in the $\hat{z}$ component of spin $\hat{S}^z=\sum_{k=1}^L \hat{S}_k^z$ but also parity is a conserved quantity. Therefore, we must consider subspaces with a fixed number of spin up or down but also separate them according to their parity. With such considerations, in Fig. \ref{xxZ} we show our analysis comparing the spectral indicator $\eta$ with the purity dynamics of our probe, for different sizes of the total spin chain, both as a function of the perturbation strength $\lambda$. While for computing $\eta$ we have considered a spin chain of length $L=15$ and restricted ourselves to the even subspace of $N=5$ spins up, for the analysis concerning the purity dynamics of our probe, no consideration regarding symmetry was made.  
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Perturbed_XXZ.pdf}
+\begin{footnotesize}
+\caption{\nico{Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$ for the reduced system considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the perturbation strength $\lambda$. For the computation of $\overline{\mathcal{P}}_{Norm}$, $50$ different realizations over random initial states were considered. For the calculation of $1-\eta$, a chain composed of $L=15$ spins was selected and only the subspace with $N=5$ was taken into account ($D_5 \approx 1500$). Parameters are set as $T=50$, $\mu=0.1$.}} 
+\label{xxZ}
+\end{footnotesize}
+\end{center}
+\end{figure}
+Despite all the symmetries mentioned before, once again the purity degradation of the probe is enough to sense the chaotic behaviour in extremely short spin chains as the one of $L=4$ spins shown in the plot.  }
+
+\clearpage
+
+\section{Sensitivity of standard indicators to the dimension of Hilbert space}
+It is well-known that the usual chaos indicators are quite sensitive to the dimension of the Hilbert space considered. Indeed, laborious diagonalizations over large subspaces are required to have reasonable statistics of the energy levels. For instance, to calculate $1-\eta$ (see Fig. 2) we have resorted to a diagonalization within a dimension of $D=16384$ eigenstates and then classified them according to their symmetries. Despite the huge dimension used for the calculation, this measure has the disadvantage of still being noisy. As it is shown in the left panel of Fig. \ref{noise_eta} \nico{for the spin chain treated in the main text (is analogous for the other models)}, this noise is quite sensitive to the reduction of dimensionality. If we slightly decrease the size of the system on which we perform the  statistics, the fluctuations become larger and larger. However, this is not the case for $\mathcal{\tilde{P}}_{Norm}$, which is robust to the size of the system under consideration. As can be seen from Fig. \ref{noise_eta}, as we increase the size of the system for the calculation of $1-\eta$, the curve slowly tends to the one obtained by studying the purity dynamics of a system of much smaller dimensionality.
+
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Eta_L.pdf}
+\begin{footnotesize}
+\caption{\textit{Left panel}: The indicator $1-\eta$ as a function of the magnetic field $h_z$ for different sizes of the total system. Only the odd subspace was taken into account for the calculation. \textit{Right panel}: Same indicator $1-\eta$ for a case of $L=14$ spins ($D=16384$) together with $\mathcal{\tilde{P}}_{Norm}$ for a case of $L=6$ spins ($D=64$), both as a function of the magnetic field $h_z$. In both panels, interaction parameters are set as $h_x=1$, $J_k=1 \, \forall \, k$, $T=50$. For the computation of $\mathcal{\tilde{P}}_{Norm}$, 50 realizations considering different random initial pure states were performed. }
+\label{noise_eta}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+%\appendix
+%\section{Appendix: }
+\label{appA}
+
+\newpage
+
+\section{Average over different realizations vs a single realization}
+%\appendix
+%\section{Appendix: }
+\label{appB}
+
+Since the standard chaos measures rely on the spectral and statistical properties of the entire system, being independent of the initial state, we have defined the quantity $\mathcal{\tilde{P}}_{Norm}$ as an average over several random initial pure states such as to avoid privileging any particular initial condition \nicon{and thus sense the whole spectrum with almost the same probability}. Nevertheless, it is also important to analyze in general what is the behaviour of this quantity for a single realization and verify that the variance of the averaged quantity is small. This is precisely what is shown in Fig. \ref{one_realization} for different sizes of the total spin chain \nico{treated in the main text}. We can see that even a single realization is sensitive to the integrable to chaos transition and the variance of the averaged quantity is in general quite small. We remark that this is consistent with our result illustrating the implications in quantum control experiments (see Fig. 3), where only a single realization considering a fixed random pure initial state was considered. 
+
+\renewcommand{\figurename}{Figure}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Chaos_single_real.pdf}
+\begin{footnotesize}
+\caption{\textit{Left panel:} Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$ for a single realization considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the magnetic field $h_z$. For computing $1-\eta$, a chain composed of $L=14$ spins ($D=16384$) was selected and only the odd subspace was taken into account ($D^{even} \approx 8192$). \textit{Right panel:} \nicor{Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$}, as a function of the magnetic field $h_z$. The linewidth of each curve represents the variance considering 50 different realizations of random initial pure states. In both panels, interaction parameters are set as $h_x=1$, $J_k=1 \, \forall \, k=\{1,2...,L-1\}$ and $T=50$.}
+\label{one_realization}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+\newpage
+
+\nicon{\section{Equilibration dynamics: Fluctuations and system size}
+In the main text we have linked the notion of purity loss, equilibration and \nicof{quantum chaos at} the limit of infinite temperature and extremely small spin chains. Under this limit, depending on how small the quantum system effectively is and the interaction parameters that are set, a stronger or weaker degree of equilibration should be expected. This degree of equilibration is characterized by how far from the equilibrium state the quantum system is and how big fluctuations are at long times. \nicof{In this context, since the purity of a two-level system is determined through its Bloch vector} 
+
+\begin{equation}
+    \mathcal{P}(t)=\frac{1}{2}(1+|\vec{r}(t)|^2),
+\end{equation}
+where $r_i(t)=\Tr(\sigma_i \tilde{\rho}(t)) \, \forall i \in \set{x,y,z}$, the purity fluctuations are strongly correlated \nicof{to} the fluctuations of each component of $\vec{r}$. As well, these fluctuations can be associated with the non-diagonal elements of the expectation value of the observable $\vec{O}=\vec{\sigma} \otimes \mathrm{I}_B$, where $\mathrm{I}_B$ represents the identity acting over the whole \nicof{spin chain that} the probe is sensing, i.e. 
+
+\begin{equation}
+    \vec{r}(t) = \Tr (\vec{\sigma} \tilde{\rho}(t))= \Tr ( \vec{\sigma} \otimes \mathrm{I}_B \rho(t))= \sum_n |C_n|^2 \bra{n}\vec{\sigma} \otimes \mathrm{I}_B \ket{n}
+    + \sum_{m\neq n} C_n C^*_m  \bra{m}\vec{\sigma} \otimes \mathrm{I}_B \ket{n}  e^{-i(E_n-E_m)t},
+\end{equation}
+where $\ket{n}$ are the eigenstates of the full system, $E_n$ its eigenenergies and $C_n=\bra{n}\psi(0)\rangle$. 
+\nicof{Under} the limit of infinite temperature, the equilibrium state of the probe is $\tilde{\rho}_{\infty}=\frac{\mathrm{I}}{2}$, $|\vec{r}_\infty|=0$ and thus $\mathcal{P}_{\infty}=1/2$. 
+The degree of equilibration to this state relies on how appreciable fluctuations are at long times and we have already shown in the main text that these fluctuations are much smaller in the chaotic regime, implying a greater degree of equilibration with respect to the integrable case (see Fig. 1). This is also exhibited in Fig. \ref{fluct_fig1}, where we can see that while fluctuations in the chaotic regime strongly decay \nicof{as we increase} L (left panel), they \nicof{vary smoothly} in the integrable case (right panel).    
+
+\renewcommand{\figurename}{Figure}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{fluct_temp_system_size.pdf}
+\begin{footnotesize}
+\caption{\nicon{Left panel: Purity as a function of time for three different system sizes. Parameters are set as $T=100$ (in units of $J^{-1}$), $h_z=0.5$, $h_x=1, J_k=1 \forall k$ (chaotic regime). Right panel: Same as the left panel but setting $h_z=0.0$ (integrable regime). In both panels, the same single realization over a pure random initial state was considered for each system size.}}
+\label{fluct_fig1}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+To show the latter in a more rigorous way, we can define time fluctuations of a given quantity $X$ by $\delta(X)=\sqrt{\langle X(t)^2 \rangle - \langle X(t)\rangle ^2}$, where the  averages are taken over  appropriate time windows. With this definition, in Fig. \ref{fluct_fig} we plot the fluctuations of each component of the Bloch vector of the probe as a function of system size in both regimes. We can see that in the chaotic regime (left panel), fluctuations associated with the expectation value of each component of the observable $\vec{O}=\vec{\sigma}\otimes \mathrm{I_B}$ decay exponentially with system size. More explicitly, this scaling is related to the thermodynamic entropy, which under our assumption of infinite temperature is $S(E)=\ln (2^L)$ and thus $e^{-S(E)/2}=e^{-\ln{2^L}/2}=1/(2^{L/2})$. On the contrary, in the integrable regime (right panel), fluctuations also decay but much less dramatically than in the chaotic regime. This means that the degree of equilibration experienced by the probe in the integrable regime is much smaller, as was also pointed out in several parts of the main text. 
+     
+
+\renewcommand{\figurename}{Figure}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{fluct_system_size.pdf}
+\begin{footnotesize}
+\caption{\nicon{Left panel: Fluctuations of the purity and of each component of the Bloch vector of the probe $r_i \, \forall i \in \set{x,y,z}$  between the time interval $t \in [50,100]$ (in units of $J^{-1}$). Parameters are set as $h_z=0.5$, $h_x=1, J_k=1 \forall k$ (chaotic regime). Right panel: Same as the left panel but setting $h_z=0.0$ (integrable regime). In both panels and for each system size, 50 different realizations over pure random initial states were considered (the mean over all realizations is what is shown).} 
+}
+\label{fluct_fig}
+\end{footnotesize}
+\end{center}
+\end{figure}
+}
+
+\clearpage
+
+\nicon{\section{Different sensing setups: probe Hamiltonian and finite environmental temperatures}}
+\nicon{Here we analyze different possibilities for sensing the chaotic behaviour of the Ising spin chain presented in the main text. As we have already discussed on Section \ref{sec_ising_tilt}, one possibility is to neglect the intrinsic Hamiltonian of the probe. In Fig. \ref{other_setups} we compare the results for the same setup considered in the main text (left panel) with a case where the intrinsic Hamiltonian of the probe is neglected (right panel). As can be observed, both situations lead to quite similar results even in the extreme case of $L=3$ spins, which evidences the robustness of the method proposed.} 
+
+\renewcommand{\figurename}{Figure}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{Ising_supplemental.pdf}
+\begin{footnotesize}
+\caption{\nicon{Normalized averaged purity $\overline{\mathcal{P}}_{Norm}$ for the probe considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the magnetic field $h_z$. Interaction parameters are set the same as in Fig. 2 of the main text and 50 different realizations over random initial states were considered. \textit{Left panel}: Including the intrinsic Hamiltonian of the probe (same curves as in Fig. 2 of the main text). \textit{Right panel}: Neglecting the intrinsic Hamiltonian of the probe. }}
+\label{other_setups}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+\nicon{Other possibility is to consider different initial temperatures for the environmental \nicof{chain}. In the main text, we have restricted ourselves to a situation of infinite temperature, where all eigenstates and eigenenergies are equally contributing to the dynamics. This can be understood as if the probe dynamics is equally sampling the whole spectrum of the \nicof{chain}. On the contrary, if the temperature is lowered, eigenstates will contribute to the dynamics according to the Boltzmann factor, being the less energetic the ones that contribute more. This introduces an asymmetry in the task of sensing the chaoticity of the spectrum and therefore we should not expect the limit of low temperatures to give us consistent results, precisely because the spectrum is not being equally sampled by the probe. This is what we show in Fig. \ref{beta_sup}, where we plot $\mathcal{P}_{Norm}$ as a function of $h_z$ for different environmental temperatures. We can see that for sufficiently high temperatures, where almost all eigenstates are significantly contributing to the dynamics, chaoticity is quite well sampled. But for very low temperatures, since great part of the spectrum is being neglected, the dynamical signatures of chaos are not properly sensed. \nicof{In conclusion, the notion of purity loss, equilibration and quantum chaos are strictly related almost independently of the system size but only at the limit of high temperatures.}}  
+
+\renewcommand{\figurename}{Figure}
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{beta_supplemental.pdf}
+\begin{footnotesize}
+\caption{\nicon{$\mathcal{\overline{P}}_{Norm}$ as a function of $h_z$ for different environmental temperatures in a chain of $L=6$ spins, together with the chaos indicator $1-\eta$ for a long chain of $L=14$ spins. Parameters are set as $T=50$ (in units of $J^{-1}$), $h_x=1, J_k=1 \forall k$. 50 different realizations over initial random states of the probe were considered.}}
+\label{beta_sup}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+%\bibliography{supplemental.bib}
+%\end{document}
