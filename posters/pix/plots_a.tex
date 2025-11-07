@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage[]{xcolor}
+% % \usetikzlibrary{positioning}
+% \usetikzlibrary{arrows,backgrounds}
+% 
+% \usepackage{amsmath, amsthm, amssymb}
+% \input{commondefinitions}
+% 	
+% 
+% 
+% \begin{document}
+% \pagestyle{empty}
+% %\providecommand{\openone}{\leavevmode\hbox{\small1\kern-3.8pt\normalsize1}}
+% 
+% % \documentclass[12pt]{article}
+% % \usepackage{psfrag}
+% \usepackage{tikz}
+% % \usetikzlibrary{positioning}
+% % \usetikzlibrary{arrows,backgrounds}
+\usetikzlibrary{calc}
+\usepackage{bbold}
+
+
+\usepackage{amsmath, amsthm, amssymb}
+\colorlet{coscolor}{blue}
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+%Colors
+
+\definecolor{max}{rgb}{1,0.54,0.1}
+\definecolor{medium}{rgb}{1,0.8,0.6}
+\definecolor{min}{rgb}{1,0.9,0.8}
+\begin{document}
+\pagestyle{empty}
+%\begin{tikzpicture}
+%\node at (0,0) {\includegraphics[scale=0.2]{chain_cg_diagram.png}};
+%\node at (0,0.3) {\tiny $2 k$};
+%\node at (-0.5,-1.2) {\tiny $2 k-1$};
+%\node at (0,0.3) {\tiny $2 k$};
+%\node at (0.5,-1.2) {\tiny $2 k+1$};
+%\end{tikzpicture}
+\newcommand{\tmpa}{0.15}
+\newcommand{\tmpb}{2.7cm}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[width=\tmpb]{A_plot_1_qubit_NoMesh_v3.pdf}};
+\node at (3,0) {\includegraphics[width=\tmpb]{A_plot_3_qubits_NoMesh_v3.pdf}};
+\node at (6,0) {\includegraphics[width=\tmpb]{A_plot_1_qutrit_NoMesh_v3.pdf}};
+%\node at (9,0) {\includegraphics[width=\tmpb]{A_plot_2_qutrits_NoMesh_v3.pdf}};
+\node at (9,0) {\includegraphics[width=\tmpb]{A_plot_1_qu8bit_v3.pdf}};
+%\node at (3,-3) {\includegraphics[width=\tmpb]{A_plot_1_qu9bit_v3.pdf}};
+%\node at (6,-3) {\includegraphics[width=\tmpb]{A_plot_1_qu10bit_v3.pdf}};
+%\node at (9,-3) {\includegraphics[width=\tmpb]{A_plot_1_qu11bit_v3.pdf}};
+\node at (11.15,-0.1) {\includegraphics[height=3.1cm]{barra_color_v3.pdf}};
+% \node at (-2.37,-0.3) {\tiny $2 k$};
+\node at (-1.0,1.0) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=2$};
+\node at (2.0,1.0) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=3, d=2$};
+\node at (5.0,1.0) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=3$};
+%\node at (8.0,1.0) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=2, d=3$};
+\node at (8.0,1.0) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=8$};
+%\node at (2.0,-2) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=9$};
+%\node at (5.0,-2) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=10$};
+%\node at (8.0,-2) [anchor=west, fill=white,opacity=.7,text opacity=1,inner sep=.6mm] {\tiny $N=1, d=11$};
+%\node at (-1.5,1.5) [anchor=west] {\tiny (a)};
+%\node at (4.5,1.5) [anchor=west] {\tiny (b)};
+%\node at (-1.5,-1.5) [anchor=west] {\tiny (c)};
+\end{tikzpicture}
+\end{document}
+	
+	
+	

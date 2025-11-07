@@ -1,0 +1,271 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\pdfoutput=1
+\documentclass[
+ reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+prl,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+\usepackage{graphicx}% Include figure files
+%\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test \usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[margin=1.8cm]{geometry}
+%\usepackage{amsmath} %lenguaje matemático
+\usepackage{amsmath,amssymb}
+%\usepackage[footnotesize]{caption} %pone los captions de las figuras más chicos
+%\usepackage{fullpage}
+\hyphenation{Debye}
+%\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+%\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+%\usepackage{cite}
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+%\usepackage[hmarginratio=2:2,top=32mm,columnsep=20pt]{geometry} % Document margins
+%\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{braket,mleftright}
+\usepackage{empheq}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{soul}
+\usepackage{blkarray}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{bbold} %math& text
+\usepackage{color}
+\bibliographystyle{apsrev}
+%\usepackage[sectionbib,square]{natbib}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bse}{\begin{subequations}}
+\newcommand{\ese}{\end{subequations}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\nico}[1]{{\color{black} #1}} %blue
+\newcommand{\nicor}[1]{{\color{black} #1}} %red
+\newcommand{\nicon}[1]{{\color{black} #1}} %red
+\newcommand{\diego}[1]{{\color{green} #1}}
+\newcommand{\nicof}[1]{{\color{black} #1}} %red
+\usepackage[utf8]{inputenc} %acentos
+\usepackage{amsmath}
+
+%beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+%\usepackage{ulem}
+\usepackage{hyperref} % For hyperlinks in the PDF
+%\setlength{\columnsep}{20pt}
+\usepackage{braket}
+\usepackage{verbatim} %multiline comments
+\begin{document}
+
+%\preprint{APS/123-QED}
+
+\title{\nicor{Quantum chaos, \nicon{equilibration} and control in extremely short spin chains}}
+
+%\nicor{Time fluctuations, quantum chaos and control in extremely short spin chains}} %\\ %An answer through quantum chaos }
+%\title{Sensing quantum chaos in extremely short spin chains and implications on control}
+
+
+\author{Nicol\'{a}s Mirkin}
+\email[Corresponding author:]{\,mirkin@df.uba.ar}
+\affiliation{%
+Departamento de F\'{i}sica “J. J. Giambiagi” and IFIBA, FCEyN, Universidad de Buenos Aires, 1428 Buenos Aires, Argentina
+}%
+
+\author{Diego Wisniacki}
+
+\affiliation{%
+Departamento de F\'{i}sica “J. J. Giambiagi” and IFIBA, FCEyN, Universidad de Buenos Aires, 1428 Buenos Aires, Argentina
+}%
+
+
+
+\date{\today}% 
+
+\begin{abstract}
+The environment of an open quantum system is usually modelled as a large many-body quantum system. \nicon{However, when an isolated quantum system itself is a many-body quantum system, the question of how large and complex it must be in order to generate internal equilibration} is an open key-point in the literature. \nicon{In this work, by monitoring the degree of equilibration of a single spin through its purity degradation, we are able to sense the chaotic behaviour of the generic spin chain to which it is coupled. Quite remarkably, this holds even in the case of extremely short spin chains composed of three spins, where we can also reproduce the whole integrable to chaos transition.} Finally, we discuss implications on quantum control experiments and show that quantum chaos reigns over the best degree of control achieved, even in small chains.
+\end{abstract}
+
+
+\maketitle
+
+
+%\section{\label{Section-Intro}Introduction}
+\textit{Introduction.} 
+\nicon{\nicof{Quantum technologies may outperform classical systems for processing information, but this depends on the ability to precisely control a complex many-body quantum system \cite{arute2019quantum,zhong2020quantum}.} \nicof{Furthermore,} since the latter is in general not isolated but in touch with its surrounding, it is also critical to know how to deal with the detrimental effects from the environment. \nicof{As a consequence}, a huge amount of research has been devoted to understand what does \textit{'in touch'} and \textit{'surrounding'} exactly mean in this context \cite{breuer2002theory,zurek2003decoherence,schlosshauer2007decoherence,rivas2012open}.} 
+
+\nicon{A common hypotheses is to consider the environment as a much larger quantum system than the one of interest. However, depending on how well isolated the open quantum system is, \nicof{the time scales introduced by the coupling to the \nicof{outside world} can be much slower than the ones dictating internal equilibration}} \cite{gogolin2016equilibration}. In fact, many of the experiments that are done today consist of working on a few well-isolated qubits and executing controlled operations on some of them \nicof{\cite{dicarlo2009demonstration,blatt2012quantum,gross2017quantum,yoneda2018quantum,neill2018blueprint,landsman2019verified,zinner2016exploring,serwane2011deterministic,murmann2015antiferromagnetic,murmann2015two,walker2018driven}}. In this scenario, one might wonder whether the set of qubits that are not being controlled, by interacting with the qubits that are, may affect  controllability in the same sense that a large environment usually does. \nicon{Therefore, the question of how small and simple this \textit{\nicof{intrinsic environment}} could be to generate \nicof{internal} equilibration and thus affect controllability is absolutely relevant \nicof{\cite{boes2018catalytic,vidiella2014deviations,vidiella2016evolution,deccordi2018simple,dymarsky2018subsystem,bluvstein2020controlling,schiulaz2018few,zisling2020many,wenz2013few}}, not only from a fundamental point of view but also from the experimental side.}   
+
+
+\nicon{\nicof{Unless a correct understanding and efficient characterization of these complex many-body quantum systems is first developed, the ultimate goal of controlling its full dynamics will always remain unattainable.}
+%To attain the ultimate goal of controlling the full dynamics of such complex many-body quantum systems, it is clear that we first need a correct and efficient characterization of them.
+\nicof{In this context, great progress has been made in the study of ubiquitous properties} associated with the non-equilibrium dynamics of many-body quantum systems, such as equilibration \cite{linden2009quantum,short2012quantum} and thermalization \nicof{\cite{rigol2008thermalization,rigol2009breakdown,gogolin2016equilibration,neill2016ergodic,kaufman2016quantum,zhu2021observation}}, where quantum chaos plays a major role \cite{deutsch1991quantum,srednicki1994chaos,srednicki1999approach,borgonovi2016quantum}. These works are usually restricted to the limit of high dimensional Hilbert spaces, where the energy spectrum is large enough to assure a proper characterization of quantum chaos through spectral measures. \nicof{It is clear that} this is not possible in the opposite limit, where the many-body quantum system is not sufficiently large.
+\nicof{Are there} any vestiges of quantum chaos at this particular limit? The answer to this question is one of the \nicof{main motivations} of our work.}
+
+\nicon{In this Letter, we study to what extent we can extract information about the chaoticity of a large spin \nicof{chain} by sensing a much smaller \nicof{one} with a simple probe. With this purpose, we consider a single spin connected to a generic spin chain and monitor the degree of equilibration of the reduced spin system \nicof{at the limit of infinite temperature} through its purity degradation. Under this framework, we show almost an exact correspondence between the degree of equilibration suffered by the probe and how much chaos is present within the dynamics of the chain, i.e. the more chaos the more equilibration. Quite remarkably, this allows us to reconstruct the whole integrable to chaos transition even in the case of extremely short spin chains composed of three spins. \nicof{The fact of finding} robust vestiges of quantum chaos in such small quantum systems constitutes the main result of our present work.} We believe that the implications of our findings are \nicof{essentially} two. First, since our method does not require \nicof{a diagonalization over huge Hilbert spaces} nor to determine a whole set of symmetrized energy eigenstates \cite{fortes2019gauging, fortes2020signatures,de2020quantum}, it constitutes a novel and easy way of sensing the chaotic behaviour in complicated many-body quantum systems, which may be of experimental interest due to its simplicity \cite{barends2014superconducting,kelly2015state,debnath2016demonstration,li2017measuring, joshi2020quantum}. Second, we argue that this result has relevant implications in quantum control experiments. As we show at the end of our work, the optimal fidelities achieved for a simple control task over the reduced system strongly depend on the chaotic behaviour of the chain. \nicon{In other words, the degree of control is subordinated to the degree of chaos present, even if the spin chain is small.} 
+
+\nico{For concreteness, in the main text we restrict our study to a particular spin chain, but the same analysis can be extended to very different systems, as we show in the Supplemental Material \cite{Note1}.} The system under consideration has no well-defined semiclassical limit and consists on a 1D Ising spin chain with nearest neighbor (NN) interaction and open boundary conditions, described by 
+\begin{equation}
+H=\sum_{k=1}^{L}\left(h_x \hat{\sigma}_{k}^{x}+h_z\hat{\sigma}_{k}^{z} \right) -   \sum_{k=1}^{L-1}J_{k}\hat{\sigma}_{k}^{z}\hat{\sigma}_{k+1}^{z},  
+\label{hamilt}
+\end{equation}
+where $L$ refers to the total number of spin-$1/2$ sites of the chain, $\hat{\sigma}_{k}^{j}$ to the Pauli operator at site $k=\set{1,2,...,L}$ with direction $j=\set{x,y,z}$, $h_x$ and $h_z$ to the magnetic field in the transverse and parallel direction, respectively, and finally $J_k$ represents the interaction strength within the site $k$ and $k+1$. In general, we will consider equal couplings, i.e. $J_{k}=1 \, \forall \, k=\{1,2...,L-1\}$, situation where the system has a symmetry with respect to the parity operator $\hat{\Pi}$. \nicon{Parity is defined through the permutation operators $\hat{\Pi}=\hat{P}_{0,L-1}\hat{P}_{1,L-2}\dots \hat{P}_{(L-1)/2-1,(L-1)/2+1}$ for a chain of odd length $L$ \nicof{(the even case is analogous).}} This implies that the spanned space is divided into odd and even subspaces with dimension $D=D^{odd}+D^{even}$  ($D^{odd/even}\approx D/2$). However, since in a realistic scenario couplings may be different due to some experimental error, we will also analyze the case with different values for $J_k$ and show the robustness of our result. With respect to the initial conditions, we will consider an initial pure random state as $\ket{\psi(0)}=\ket{\psi_1}\ket{\psi_2}...\ket{\psi_L}$, where each spin at site $k$ initially points in a random direction on its Bloch sphere
+\begin{equation}
+    \ket{\psi_k}=\cos{\left(\dfrac{\theta_k}{2}\right)}\ket{\uparrow}+e^{i\phi_k}\sin{\left(\dfrac{\theta_k}{2}\right)}\ket{\downarrow},
+    \label{initial_state}
+\end{equation}
+with $\theta_k \in [0,\pi)$ and $\phi_k \in [0,2\pi)$. Note that this ensemble of initial states maximizes the thermodynamic entropy and \nicor{is equivalent} to a situation of infinite temperature \cite{kim2013ballistic}. \nicon{This assumption is  important since the whole spectrum will be equally contributing to the dynamics \cite{Note1}.} From now on, we will take as the reduced system the first spin of the chain and consider the rest as an \textit{effective environment}. For example, a case with $L=3$ represents a single spin acting as an open system and coupled to an effective environment of only two spins. This may sound too simple but we remark that a recent experiment was able to capture chaotic behaviour on a 4-site Ising spin chain by measuring Out-of-Time Ordered Correlators (OTOC's) \cite{fortes2019gauging,PhysRevLett.121.210601} on a nuclear magnetic resonance quantum simulator \cite{li2017measuring}.
+
+In order to fully characterize the integrable to chaos transition, the standard procedure requires the limit of a high dimensional Hilbert space and the separation of the energy levels according to their symmetries \cite{percival1973regular, berry1977level,bohigas1984characterization}. This may demand huge numerical effort or even be quite laborious to implement experimentally. Within all the standard chaos indicators in the literature, in this work we will restrict ourselves to the so-called distribution of $\min(r_n,1/r_n)$, where $r_n$ refers to the ratio between the two nearest neighbour spacings of a given level. By taking $e_n$ as an ordered set of energy levels, we can define the nearest neighbour spacings as $s_n=e_{n+1}-e_n$. With this notation, \nicor{we can measure the presence of chaotic behavior through} \cite{oganesyan2007localization,atas2013distribution,kudo2018finite} 
+
+\begin{equation}
+\nicor{\Tilde{r}_n=\dfrac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}=\min(r_n,1/r_n),}
+\end{equation}
+where $r_n=s_n/s_{n-1}$. As the mean value of $\Tilde{r}_n$ ($\overline{\min(r_n,1/r_n)}$) attains a maximum when the statistics is Wigner-Dyson \nicor{($\mathcal{I}_{WD} \eqsim 0.5307$)} and a minimum when is Poissonian \nicor{($\mathcal{I}_{P} \eqsim 0.386$)}, we can normalize it as
+\begin{equation}
+    \eta=\dfrac{\overline{\min(r_n,1/r_n)}-\mathcal{I}_P}{\mathcal{I}_{WD}-\mathcal{I}_P}.
+\label{eta}
+\end{equation}
+
+The parameter $\eta$ quantifies the chaotic behaviour of the system in the sense that $\eta \rightarrow{0}$ refers to an integrable dynamics while $\eta \rightarrow{1}$ to a chaotic one. While $\eta$ is based on the spectral properties of the entire system, \nicon{is useful only in long chains \cite{Note1}} and requires to analyze separately even and odd subspaces, we will show that by studying the \nicor{equilibration} dynamics of a single spin we will be able to reconstruct the whole structure of the regular to chaos transition, even in the case of extremely short spin chains and without resorting to any classification according to the energy level symmetries. 
+
+\nico{In \nicon{panel (a) of}  Fig. \ref{intro} we summarize the main idea of our work. We are interested on how a single spin acting as a probe of a small chain behaves in the typical regimes where \nicof{the same spin chain but much larger} is known to be either integrable or chaotic.  With this purpose, \nicof{we solve} the Schrödinger equation for the whole \nicor{small} system $\rho(t)$ and then trace over the environmental degrees of freedom, focusing on the purity of the reduced density matrix $\tilde{\rho}(t)$ of the first spin of the chain ($\mathcal{P}(t)=\Tr[\tilde{\rho}^{2}(t)]$).} \nicon{Since the purity of the probe is fully determined through its Bloch vector $\vec{r}=(r_x,r_y,r_z)$, where $r_i(t)=\Tr \left(\sigma_i \tilde{\rho}(t) \right) \forall i \in \set{x,y,z}$ (i.e.
+$\mathcal{P}(t)=1/2(1+|\vec{r}(t)|^2)$), its long-time dynamics is strictly related to the degree of equilibration of the whole set of local observables $A=\set{\mathrm{I},\sigma_x,\sigma_y,\sigma_z}$. This subsystem equilibration should be understand as $\lim\limits_{t \to \infty} \Tr (\tilde{\rho}(t)\widehat{O})=\Tr (\tilde{\rho}_{\infty} \widehat{O} ) \, \forall \, \widehat{O} \in A$, where $\tilde{\rho}_{\infty}$ is the equilibrium state of the probe \cite{linden2009quantum,short2012quantum}. \nicof{If the spin chain is large enough, under the assumption of infinite temperature}, we have $\tilde{\rho}_\infty=\frac{\mathrm{I}}{2}$, which implies $\Tr \left(\sigma_i \tilde{\rho}_\infty \right)=0 \, \forall i \in \set{x,y,z}$ and thus $\mathcal{P}_\infty=1/2$.}
+
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=87mm]{fig1_prresearch.png}
+\begin{footnotesize}
+\caption{\nico{\nicor{Panel (a) Time evolution of the probe in the Bloch sphere}, considering a small chain of $L=6$ spins and both integrable (\nicor{$h_z=0.0$}, orange squares) and chaotic ($h_z=0.5$, violet circles) regimes. The initial state is a pure random state for each spin. The rest of the parameters are set as $h_x=1$, $J_k=1 \, \forall \, k=\{1,2...,L-1\}$ and \nicor{$T=100$} (in units of $J^{-1}$). Panel (b): Purity of the probe for the same set of parameters as (a). The temporal average is shown as a dashed line. \nicon{Panel (c): \nicof{Time} fluctuations of the purity (averaged over 50 different initial states) as a function of system size in both regimes. \nicof{Fluctuations are defined as $\delta(P)=\sqrt{\langle P(t)^2 \rangle - \langle P(t)\rangle ^2}$, where the interval $t \in [50,100]$ (in units of $J^{-1}$) was considered \cite{Note1}.}}}} 
+\label{intro}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+From \nicon{panel (b) of} Fig. \ref{intro} we can \nico{qualitatively} see that while in the chaotic regime the \nicor{long-time dynamics} washes out the purity of the system, leading to a state of almost maximum uncertainty, this is not the case for the integrable regime, where \nicor{at long times} it oscillates periodically around a mean value much greater than $1/2$. \nicon{It is clear that fluctuations are much smaller in the chaotic regime, despite the spin chain analyzed in Fig. \ref{intro} is quite short ($L=6$). Also, while fluctuations strongly decay with system size in this regime, they do not in the integrable case, as \nicof{it is} shown in panel (c) \nicof{of Fig. 1}.} \nicor{With respect to the short-time decay, associated with decoherence, it is similar in both regimes \nicof{\cite{ermann2006decoherence}}. For this reason, we will focus on the long-time regime, where \nicon{some degree of} equilibration takes place even in extremely short chains, as we shall see.}
+
+Having this qualitative picture in mind, we now intend to measure \nicon{the degree of equilibration} in a more quantitative way. To do so, we will focus again on the purity degradation of our reduced spin system $\tilde{\rho}(t)$, by defining an averaged purity as
+%\begin{equation}
+    $\overline{\mathcal{P}}=\dfrac{1}{N}\sum_{i=1}^{N}\left(\dfrac{1}{T}\int_{0}^{T}\Tr[\tilde{\rho}^{2}_{i}(t)]dt \right)$,
+%    \label{pur}
+%\end{equation}
+%In the expression above
+where we first make a temporal average over the purity of a particular $\tilde{\rho}_{i}(t)$, defined by a given random initial state, and then we repeat this procedure for $N$ different initial random states, to finally perform a global average over all realizations. \nico{Let us remark that since we are interested in studying the transition to chaos as a function of a certain parameter, to compare the averaged quantity $\overline{\mathcal{P}}$ with the chaos measure introduced in Eq. (\ref{eta}), we define a normalized averaged purity as}
+\begin{equation}
+    \overline{\mathcal{P}}_{Norm}=\dfrac{\overline{\mathcal{P}}-\min{(\overline{\mathcal{P}}})}{\max{(\overline{\mathcal{P}})}-\min{(\overline{\mathcal{P}})}
+} \qquad \left( 0 \leq \overline{\mathcal{P}}_{Norm} \leq 1 \right),  
+\label{purity}
+\end{equation}
+\nicor{where $\min{(\overline{\mathcal{P}})}$ and $\max{(\overline{\mathcal{P}})}$ are the minimal and maximal value obtained when sweeping over the parameter range.} With this definition, we have now all the necessary ingredients to \nicor{pose} the following question: how does the purity degradation of the reduced system behaves as a function of the degree of chaos present in the rest of the chain? To address this issue, in Fig. \ref{chaos} we plot the \nicon{spectral} chaos indicator $\eta$ for a large chain composed of $L=14$ spins ($D=16384$) together with the averaged purity $\overline{\mathcal{P}}_{Norm}$ of the reduced system for different sizes of the total spin chain, both as a function of the magnetic field $h_z$. 
+
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=85mm]{Chaos.pdf}
+\begin{footnotesize}
+\caption{\textit{Main plot:} $\overline{\mathcal{P}}_{Norm}$ for the probe considering different sizes of the environment together with the chaos parameter $1-\eta$, both as a function of the magnetic field $h_z$. For computing $\overline{\mathcal{P}}_{Norm}$, 50 different realizations over random initial states were considered. For the calculation of $1-\eta$, a chain composed of $L=14$ spins ($D=16384$) was selected and only the odd subspace was taken into account ($D^{odd} \approx 8192$). Parameters are set as $T=50$, $h_x=1$ and $J_k=1 \, \forall \, k=\{1,2...,L-1\}$ with the exception of the violet crossed curve where $J_k \in [0.5,1.5] \, \forall \, k=\{1,2...,L-1\}$. \nicor{The plot begins at $h_z=0.01$}. \textit{Inset plot:} Same as the main plot but without normalizing the averaged purity (i.e. $\overline{\mathcal{P}}$).}% (i.e. $\overline{\mathcal{P}}$, see Eq. (\ref{pur})).} 
+\label{chaos}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+%On  the  contrary,  the OTOC analysis will be carried on the entire Hilbert space of dimension $D=2^L$.
+Interestingly, the behavior of the averaged purity of the probe is quite similar regardless of the length of the environment. In fact, there is a well distinguished area in all the curves where the purity degradation is maximal. By comparing with the curve given by $1-\eta$, we can see that this region coincides almost perfectly with the region where chaos reigns, i.e. $(1-\eta) \rightarrow 0$. Quite remarkably, this is true even when the \nicon{system} is extremely short ($D=8$), where we can observe a precise correspondence with the exception of a small deviation near $h_z \sim 0.5$. This deviation can be smoothed by either taking more realizations over different initial states or slightly increasing the size of the environment by one spin. 
+
+Various implications emerge from the analysis of Fig. \ref{chaos}. In first place, by using one spin as a probe and studying its purity dynamics, we were able not only to sense the chaotic behaviour present in \nicon{the full system}, but also to reconstruct the whole integrable to chaos transition with a great degree of correspondence in comparison to other standard indicators of chaos. However, while the usual methods require a full diagonalization and classification of eigenenergies according to their symmetries within huge dimensional subspaces \cite{Note1}, we have obtained the same results without requiring the above and even in \nicon{much smaller subspaces}. Moreover, the average over different realizations of the purity proved to be robust not only to the size of the environment, but also to whether we consider equal couplings or even a random set of $J_k$ modelling some hypothetical experimental error (see violet crossed curve in Fig. \ref{chaos}). \nicon{Our result evidences that when a small fraction from a large chaotic system is selected, some trace of the universal nature of the latter survives.} 
+
+Keeping in mind the results presented so far, let us now examine the following hypothetical situation: consider an experimental scenario where a \nico{given} spin chain \nicor{is well-isolated from the external environment and} where some particular spin of this chain can be externally controlled. For instance, consider a time-dependent Hamiltonian %of the form 
+\begin{equation}
+H=\sum_{k=1}^{L} \left(h_x \hat{\sigma}_{k}^{x}+h_z\hat{\sigma}_{k}^{z} \right) -   \sum_{k=1}^{L-1}J_{k}\hat{\sigma}_{k}^{z}\hat{\sigma}_{k+1}^{z}+\lambda(t)\hat{\sigma}_{1}^{z},    
+\label{hamilt2}
+\end{equation}
+where $\lambda(t)$ is a control field that can be experimentally tuned. Thus,  you may want to implement some particular protocol over the spin you are able to control. For example, consider a population transfer protocol, where the first spin of the chain has to be addressed from the initial state $\ket{\psi(0)}=\ket{0}$ to the final target state $\ket{\psi_{targ}}=\ket{1}$. \nico{\nicon{Or maybe you are} interested in generating a maximally entangled state between the first two spins of the chain, i.e.  $\ket{\psi_{targ}}=\frac{1}{\sqrt{2}}\left( \ket{00} +\ket{11} \right)$}. To do so, the time-dependent control field $\lambda (t)$ must be optimized to maximize the fidelity $\mathcal{F}=\left |\braket{\psi(T)}{\psi_{targ}} \right |^{2}$ at a final evolution time $T$. In light of the results we presented before, you may be wondering the following question: is the maximum degree of control achievable subordinated to the degree of chaos present within the non-controlled \textit{environmental spins}?  
+
+In order to answer \nicof{this} question, we \nicof{consider} the control function $\lambda(t)$ as a vector of control variables $\lambda(t) \rightarrow \{ \lambda_{l} \} \equiv \Vec{\lambda}$, i.e. a field with constant amplitude $\lambda_{l}$ for each time step. \nico{By dividing the evolution time $T$ into $n_{ts}$ equidistant time steps  $(l=1,2,..., n_{ts})$, the optimization was performed exploring several random initial seeds and resorting to standard optimization tools \cite{bib:scipy, johansson2012qutip}. In Fig. \ref{control} we plot the optimal fidelities achieved for both the population transfer and entangling protocols, as a function of $h_z$ and for different lengths for the total spin chain.} 
+\renewcommand{\figurename}{Figure} 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=85mm]{Control.png}
+\begin{footnotesize}
+\caption{\textit{Main plot:} Optimal fidelities for a population transfer protocol as a function of $h_z$. The dashed curve is for $L=6$ spins and the solid for $L=9$. Interaction parameters are set as $T=20$, $h_x=1$ and $J_k \in [0.5,1.5] \, \forall \, k=\{1,2...,L-1\}$. The initial state is $\ket{0}$ for the first spin and random for the rest of the system (see Eq. (\ref{initial_state})). Only one realization was considered. \nico{\textit{Inset (a):} Optimal fidelities for an entangling protocol between the first two spins of the chain. Parameters are set as $L=6$, $T=20$, $h_x=1$ and $J_k =1 \, \forall \, k=\{1,2...,L-1\}$. The initial state is random for each spin and only one realization was considered.} \textit{\nico{Inset (b)}:} Optimal fidelities of the main plot as a function of the chaos parameter $\eta$.} 
+\label{control}
+\end{footnotesize}
+\end{center}
+\end{figure}
+
+Interestingly, we can conclude from Fig. \ref{control} that the optimal fidelities achieved for \nicon{these simple but paradigmatic protocols} \nicof{are} very sensitive to the degree of chaos that is present within the rest of the spin chain. In fact, from the main plot \nico{and from inset (a)} we can see that the optimal fidelities behave quite similarly to the chaos parameter $1-\eta$, as a function of the magnetic field $h_z$ (see Fig. \ref{chaos}). Accordingly, in the \nico{inset (b)} of Fig. \ref{control} we plot the optimal fidelities obtained in the main plot but now as a function of the degree of chaos associated to the specific strength of the magnetic field $h_z$ (see again Fig. \ref{chaos}). By doing this, it is clear that the more chaos, the worse control. This last statement clearly relates to what we have been discussing before, in the sense that a greater degree of chaos is also associated with a stronger \nicor{equilibration}. Therefore, this means that the non-controlled system is acting as an \textit{effective environment} for the \nico{spins that are} being actively controlled and we argue that even in the case where this effective environment is small, its dynamics should be carefully tuned in order to minimize \nicon{equilibration} and thus improve the degree of control over the reduced system that is being addressed. 
+
+
+\textit{Concluding remarks.} The goal of this work was to \nicor{study} the interplay between equilibration, quantum chaos and control in the limit \nicon{of a small isolated many-body quantum system}. \nicon{In this context, by monitoring the long-time dynamics of a spin connected to a generic spin chain, we found that its purity degradation can be used as a probe to sense the chaotic behaviour of the chain \nicof{under} the limit of infinite temperature. By showing that a greater degree of equilibration is associated with a more chaotic region, we were able to reconstruct the whole integrable to chaos transition even in the case where the full system was merely composed of three spins.} \nico{This was done without any consideration \nicof{of} the conserved symmetries of the system, which is \nicof{another} important advantage with respect to previous methods considered in the literature.} \nicon{\nicof{The fact of finding robust vestiges of quantum chaos in such small quantum systems is of fundamental interest but also has practical implications in quantum control experiments}}. By considering \nicon{simple but paradigmatic protocols} over a spin subject to a control field that can be experimentally tuned, we have shown that the best control achievable is a function of the degree of chaos present \nicon{within the full system of which it is a part}. Consequently, in realistic experiments where a control task is sought over a reduced part of a system that is not necessarily large but that nevertheless presents signatures of quantum chaos, the interaction parameters must be carefully adjusted to avoid the chaotic regime and thus achieve a better performance of the control. 
+
+\begin{acknowledgements}
+We acknowledge R. A. Jalabert for his insights about the manuscript. The work was partially supported by CONICET (PIP 112201 50100493CO), UBACyT (20020130100406BA), ANPCyT (PICT-2016-1056), and National Science Foundation (Grant No. PHY-1630114).
+\end{acknowledgements}
+%\clearpage
+
+%\clearpage
+\bibliography{main.bib}
+
+\widetext
+\clearpage
+\input{supplemental}
+
+
+\end{document}
+
+
+
+
+
+
